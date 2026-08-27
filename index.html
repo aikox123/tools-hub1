@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tools Hub</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            background:
+                radial-gradient(
+                    ellipse at 20% 20%,
+                    rgba(70, 130, 255, 0.12),
+                    transparent 55%
+                ),
+                radial-gradient(
+                    ellipse at 80% 80%,
+                    rgba(130, 80, 255, 0.08),
+                    transparent 55%
+                ),
+                #081321;
+
+            min-height: 100vh;
+            color: white;
+            padding: 25px 15px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 420px;
+            margin: auto;
+
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        /* =========================
+           BALANCE
+        ========================= */
+
+        .balance-card {
+            width: 100%;
+
+            padding: 22px;
+
+            border-radius: 25px;
+
+            background: rgba(20, 40, 75, 0.65);
+
+            border: 1px solid rgba(130, 195, 255, 0.12);
+
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,.35),
+                inset 0 1px 0 rgba(255,255,255,.04);
+
+            text-align: center;
+        }
+
+        .balance-title {
+            color: rgba(200,220,255,.55);
+            font-size: 12px;
+            margin-bottom: 6px;
+        }
+
+        .balance {
+            font-size: 32px;
+            font-weight: 800;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #8dc3ff,
+                    #5795ff
+                );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .topup-button {
+            margin-top: 14px;
+
+            width: 100%;
+
+            border: none;
+
+            padding: 12px 20px;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #5b9aff,
+                    #3a70d0
+                );
+
+            color: white;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: .25s;
+        }
+
+        .topup-button:hover {
+            transform: translateY(-2px);
+            box-shadow:
+                0 10px 30px rgba(60,130,255,.2);
+        }
+
+        /* =========================
+           SQUARE
+        ========================= */
+
+        .square {
+            width: 100%;
+            max-width: 340px;
+
+            aspect-ratio: 1 / 1;
+
+            margin: auto;
+
+            padding: 28px 22px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            border-radius: 28px;
+
+            background:
+                rgba(20,40,75,.55);
+
+            border:
+                1px solid rgba(130,195,255,.10);
+
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,.4),
+                inset 0 1px 0 rgba(255,255,255,.04);
+
+            transition: .3s;
+        }
+
+        .square:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 25px 70px rgba(0,0,0,.5);
+        }
+
+        .glow-ring {
+            width: 55px;
+            height: 55px;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border:
+                1px solid rgba(130,195,255,.12);
+
+            margin-bottom: 10px;
+        }
+
+        .logo {
+            font-size: 30px;
+        }
+
+        .title {
+            color: #f1f6ff;
+
+            font-size: 18px;
+
+            font-weight: 700;
+
+            margin-bottom: 5px;
+        }
+
+        .title span {
+            background:
+                linear-gradient(
+                    135deg,
+                    #7ab7ff,
+                    #4a8eff
+                );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sub {
+            color:
+                rgba(190,215,255,.48);
+
+            font-size: 11px;
+
+            line-height: 1.5;
+
+            max-width: 260px;
+        }
+
+        /* =========================
+           GAME BUTTONS
+        ========================= */
+
+        .games-grid {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            margin: 14px 0;
+        }
+
+        .game-item {
+            color:
+                rgba(220,235,255,.75);
+
+            background:
+                rgba(255,255,255,.04);
+
+            border:
+                1px solid rgba(255,255,255,.06);
+
+            padding:
+                7px 15px;
+
+            border-radius: 12px;
+
+            font-size: 11px;
+
+            text-decoration: none;
+
+            transition: .25s;
+        }
+
+        .game-item:hover {
+            transform: translateY(-2px);
+
+            background:
+                rgba(90,160,255,.10);
+        }
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .btn {
+            display: inline-block;
+
+            margin-top: 13px;
+
+            padding: 11px 27px;
+
+            border-radius: 30px;
+
+            border: none;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: .25s;
+        }
+
+        .btn:hover {
+            transform:
+                translateY(-2px)
+                scale(1.02);
+        }
+
+        .btn-blue {
+            background:
+                linear-gradient(
+                    135deg,
+                    #5b9aff,
+                    #3a7acc
+                );
+
+            box-shadow:
+                0 5px 25px rgba(60,130,255,.15);
+        }
+
+        .btn-green {
+            background:
+                linear-gradient(
+                    135deg,
+                    #28d889,
+                    #0a9a5a
+                );
+        }
+
+        /* =========================
+           STATUS
+        ========================= */
+
+        .sensor-bar {
+            width: 180px;
+
+            height: 3px;
+
+            margin-top: 15px;
+
+            background:
+                rgba(255,255,255,.05);
+
+            border-radius: 10px;
+
+            overflow: hidden;
+        }
+
+        .sensor-fill {
+            height: 100%;
+
+            width: 60%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #5b9aff,
+                    #a855f7
+                );
+        }
+
+        .status {
+            margin-top: 6px;
+
+            color:
+                rgba(190,215,255,.35);
+
+            font-size: 10px;
+        }
+
+        /* =========================
+           MODAL
+        ========================= */
+
+        .modal {
+            position: fixed;
+
+            inset: 0;
+
+            display: none;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 20px;
+
+            background:
+                rgba(0,0,0,.65);
+
+            z-index: 1000;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-box {
+            width: 100%;
+            max-width: 360px;
+
+            padding: 25px;
+
+            border-radius: 25px;
+
+            background:
+                #10233c;
+
+            border:
+                1px solid rgba(130,195,255,.12);
+
+            box-shadow:
+                0 25px 80px rgba(0,0,0,.55);
+
+            text-align: center;
+        }
+
+        .modal-title {
+            font-size: 20px;
+
+            font-weight: 700;
+
+            margin-bottom: 6px;
+        }
+
+        .modal-sub {
+            font-size: 11px;
+
+            color:
+                rgba(190,215,255,.45);
+
+            margin-bottom: 18px;
+        }
+
+        .amounts {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2,1fr);
+
+            gap: 10px;
+        }
+
+        .amount {
+            padding: 12px;
+
+            border-radius: 15px;
+
+            border:
+                1px solid rgba(130,195,255,.10);
+
+            background:
+                rgba(255,255,255,.04);
+
+            color: white;
+
+            cursor: pointer;
+
+            font-weight: 700;
+
+            transition: .2s;
+        }
+
+        .amount:hover {
+            background:
+                rgba(90,160,255,.12);
+
+            transform: translateY(-2px);
+        }
+
+        .close {
+            margin-top: 16px;
+
+            padding: 9px 20px;
+
+            border-radius: 20px;
+
+            border: none;
+
+            background:
+                rgba(255,255,255,.06);
+
+            color:
+                rgba(255,255,255,.7);
+
+            cursor: pointer;
+        }
+
+        /* =========================
+           TOAST
+        ========================= */
+
+        .toast {
+            position: fixed;
+
+            bottom: 25px;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            display: none;
+
+            padding: 11px 22px;
+
+            border-radius: 25px;
+
+            background:
+                rgba(7,18,34,.95);
+
+            border:
+                1px solid rgba(110,180,255,.10);
+
+            color: white;
+
+            font-size: 12px;
+
+            z-index: 2000;
+        }
+
+        .toast.show {
+            display: block;
+        }
+
+        @media(max-width:380px) {
+
+            .square {
+                max-width: 100%;
+            }
+
+            .balance {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- BALANCE -->
+
+    <div class="balance-card">
+
+        <div class="balance-title">
+            შენი ბალანსი
+        </div>
+
+        <div class="balance" id="balance">
+            $0.00
+        </div>
+
+        <button
+            class="topup-button"
+            onclick="openTopup()">
+
+            💳 ბალანსის შევსება
+
+        </button>
+
+    </div>
+
+
+    <!-- TOOLS HUB -->
+
+    <div class="square">
+
+        <div class="glow-ring">
+            <div class="logo">🎮</div>
+        </div>
+
+        <div class="title">
+            ⚡ <span>Tools Hub</span>
+        </div>
+
+        <div class="sub">
+            თამაშები და სასარგებლო რესურსები
+        </div>
+
+        <div class="games-grid">
+
+            <a
+                href="https://aikox123.github.io/tools-hub/"
+                target="_blank"
+                class="game-item">
+
+                🎮 Geode
+
+            </a>
+
+            <a
+                href="https://aikox123.github.io/tools-hub/"
+                target="_blank"
+                class="game-item">
+
+                🚗 GTA 5
+
+            </a>
+
+        </div>
+
+        <a
+            href="https://aikox123.github.io/tools-hub/"
+            target="_blank"
+            class="btn btn-blue">
+
+            ⬇️ უფასო
+
+        </a>
+
+        <div class="sensor-bar">
+            <div class="sensor-fill"></div>
+        </div>
+
+        <div class="status">
+            ● მზად არის
+        </div>
+
+    </div>
+
+
+    <!-- DAY ROUTINE -->
+
+    <div class="square">
+
+        <div class="glow-ring">
+            <div class="logo">📋</div>
+        </div>
+
+        <div class="title">
+            <span>დღის</span> რუტინა
+        </div>
+
+        <div class="sub">
+            დაგეგმილი ყოველდღიური რუტინა
+        </div>
+
+        <button
+            class="btn btn-blue"
+            onclick="buyProduct('routine50', 0.50)">
+
+            🔓 $0.50 — გახსნა
+
+        </button>
+
+        <div class="sensor-bar">
+            <div
+                class="sensor-fill"
+                style="width:40%">
+            </div>
+        </div>
+
+        <div class="status">
+            ⏳ ხელმისაწვდომია
+        </div>
+
+    </div>
+
+
+    <!-- ROUTINES -->
+
+    <div class="square">
+
+        <div class="glow-ring">
+            <div class="logo">💪</div>
+        </div>
+
+        <div class="title">
+            <span>რუტინები</span>
+        </div>
+
+        <div class="sub">
+            აირჩიე ხელმისაწვდომი რუტინა
+        </div>
+
+        <button
+            class="btn btn-blue"
+            onclick="buyProduct('routine70', 0.70)">
+
+            🔓 $0.70 — გახსნა
+
+        </button>
+
+        <div class="sensor-bar">
+            <div
+                class="sensor-fill"
+                style="width:85%">
+            </div>
+        </div>
+
+        <div class="status">
+            ⚡ აქტიური
+        </div>
+
+    </div>
+
+
+    <!-- CONTENT CREATOR -->
+
+    <div class="square">
+
+        <div class="glow-ring">
+            <div class="logo">🎬</div>
+        </div>
+
+        <div class="title">
+            თუ ხარ <span>კონტენტ კრეატორი</span>
+        </div>
+
+        <div class="sub">
+            ვიდეოების ედიტინგის სერვისი
+        </div>
+
+        <a
+            href="https://www.fiverr.com/s/o8DrKwN"
+            target="_blank"
+            class="btn btn-green">
+
+            ✂️ ეწვიე
+
+        </a>
+
+        <div class="sensor-bar">
+            <div
+                class="sensor-fill"
+                style="width:50%">
+            </div>
+        </div>
+
+        <div class="status">
+            🎬 ვიდეო ედითი
+        </div>
+
+    </div>
+
+
+    <!-- AI -->
+
+    <div
+        class="square"
+        style="opacity:.5">
+
+        <div class="glow-ring">
+            <div class="logo">🤖</div>
+        </div>
+
+        <div class="title">
+            <span>AI</span> Assistant
+        </div>
+
+        <div class="sub">
+            დროებით მიუწვდომელია
+        </div>
+
+        <div class="status">
+            ⏳ განახლება მალე
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- TOPUP MODAL -->
+
+<div
+    class="modal"
+    id="topupModal">
+
+    <div class="modal-box">
+
+        <div class="modal-title">
+            💳 ბალანსის შევსება
+        </div>
+
+        <div class="modal-sub">
+            აირჩიე თანხა
+        </div>
+
+        <div class="amounts">
+
+            <button
+                class="amount"
+                onclick="topup(0.50)">
+                $0.50
+            </button>
+
+            <button
+                class="amount"
+                onclick="topup(0.70)">
+                $0.70
+            </button>
+
+            <button
+                class="amount"
+                onclick="topup(1)">
+                $1.00
+            </button>
+
+            <button
+                class="amount"
+                onclick="topup(2)">
+                $2.00
+            </button>
+
+            <button
+                class="amount"
+                onclick="topup(5)">
+                $5.00
+            </button>
+
+            <button
+                class="amount"
+                onclick="topup(10)">
+                $10.00
+            </button>
+
+        </div>
+
+        <button
+            class="close"
+            onclick="closeTopup()">
+
+            დახურვა
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<div
+    class="toast"
+    id="toast">
+</div>
+
+
+<script>
+
+    /*
+    ============================================================
+    TOOLS HUB FRONTEND
+    ============================================================
+    */
+
+    /*
+    IMPORTANT:
+
+    სანამ Backend URL არ გაქვს,
+    ეს ცვლადი ცარიელია.
+
+    მოგვიანებით აქ ჩავწერთ Render-ის URL-ს.
+    მაგალითად:
+
+    const BACKEND_URL =
+        "https://tools-hub-backend.onrender.com";
+    */
+
+    const BACKEND_URL = "";
+
+
+    /* =========================
+       LOAD BALANCE
+    ========================= */
+
+    async function loadBalance() {
+
+        if (!BACKEND_URL) {
+
+            document.getElementById(
+                "balance"
+            ).textContent = "$0.00";
+
+            return;
+        }
+
+        try {
+
+            const response =
+                await fetch(
+                    BACKEND_URL +
+                    "/api/balance",
+                    {
+                        credentials: "include"
+                    }
+                );
+
+            const data =
+                await response.json();
+
+            if (data.success) {
+
+                document.getElementById(
+                    "balance"
+                ).textContent =
+                    "$" +
+                    Number(
+                        data.balance
+                    ).toFixed(2);
+            }
+
+        } catch (error) {
+
+            console.error(
+                "Balance error:",
+                error
+            );
+        }
+    }
+
+
+    /* =========================
+       TOPUP WINDOW
+    ========================= */
+
+    function openTopup() {
+
+        document
+            .getElementById(
+                "topupModal"
+            )
+            .classList.add("active");
+    }
+
+
+    function closeTopup() {
+
+        document
+            .getElementById(
+                "topupModal"
+            )
+            .classList.remove("active");
+    }
+
+
+    /* =========================
+       TOPUP
+    ========================= */
+
+    async function topup(amount) {
+
+        if (!BACKEND_URL) {
+
+            showToast(
+                "⚙️ Backend ჯერ არ არის დაკავშირებული"
+            );
+
+            return;
+        }
+
+        try {
+
+            const response =
+                await fetch(
+                    BACKEND_URL +
+                    "/api/create-topup",
+                    {
+                        method: "POST",
+
+                        credentials: "include",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body:
+                            JSON.stringify({
+                                amount: amount
+                            })
+                    }
+                );
+
+            const data =
+                await response.json();
+
+            if (
+                data.success &&
+                data.approvalUrl
+            ) {
+
+                window.location.href =
+                    data.approvalUrl;
+
+                return;
+            }
+
+            showToast(
+                data.error ||
+                "შეცდომა"
+            );
+
+        } catch (error) {
+
+            console.error(error);
+
+            showToast(
+                "სერვერთან დაკავშირება ვერ მოხერხდა"
+            );
+        }
+    }
+
+
+    /* =========================
+       BUY PRODUCT
+    ========================= */
+
+    async function buyProduct(
+        productId,
+        price
+    ) {
+
+        if (!BACKEND_URL) {
+
+            showToast(
+                "⚙️ Backend ჯერ არ არის დაკავშირებული"
+            );
+
+            return;
+        }
+
+        try {
+
+            const response =
+                await fetch(
+                    BACKEND_URL +
+                    "/api/buy",
+                    {
+                        method: "POST",
+
+                        credentials: "include",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body:
+                            JSON.stringify({
+                                productId:
+                                    productId
+                            })
+                    }
+                );
+
+            const data =
+                await response.json();
+
+            if (data.success) {
+
+                document.getElementById(
+                    "balance"
+                ).textContent =
+                    "$" +
+                    Number(
+                        data.balance
+                    ).toFixed(2);
+
+                openRoutine(
+                    productId
+                );
+
+                return;
+            }
+
+            if (
+                data.error ===
+                "INSUFFICIENT_BALANCE"
+            ) {
+
+                showToast(
+                    "❌ ბალანსზე საკმარისი თანხა არ არის"
+                );
+
+                return;
+            }
+
+            showToast(
+                data.error ||
+                "შეძენა ვერ მოხერხდა"
+            );
+
+        } catch (error) {
+
+            console.error(error);
+
+            showToast(
+                "სერვერთან დაკავშირება ვერ მოხერხდა"
+            );
+        }
+    }
+
+
+    /* =========================
+       OPEN ROUTINE
+    ========================= */
+
+    function openRoutine(
+        productId
+    ) {
+
+        if (
+            productId ===
+            "routine50"
+        ) {
+
+            alert(
+                "✅ რუტინა განბლოკილია!"
+            );
+
+        } else if (
+            productId ===
+            "routine70"
+        ) {
+
+            alert(
+                "✅ რუტინა განბლოკილია!"
+            );
+        }
+    }
+
+
+    /* =========================
+       TOAST
+    ========================= */
+
+    function showToast(message) {
+
+        const toast =
+            document.getElementById(
+                "toast"
+            );
+
+        toast.textContent =
+            message;
+
+        toast.classList.add(
+            "show"
+        );
+
+        clearTimeout(
+            window.toastTimer
+        );
+
+        window.toastTimer =
+            setTimeout(
+                function() {
+
+                    toast.classList.remove(
+                        "show"
+                    );
+
+                },
+                2500
+            );
+    }
+
+
+    /* =========================
+       START
+    ========================= */
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        function() {
+
+            loadBalance();
+
+        }
+    );
+
+</script>
+
+</body>
+</html>
