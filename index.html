@@ -43,10 +43,6 @@
             gap: 22px;
         }
 
-        /* =========================
-           BALANCE
-        ========================= */
-
         .balance-card {
             width: 100%;
             padding: 22px;
@@ -121,10 +117,6 @@
             box-shadow:
                 0 10px 30px rgba(60, 130, 255, .2);
         }
-
-        /* =========================
-           SQUARE
-        ========================= */
 
         .square {
             width: 100%;
@@ -221,10 +213,6 @@
             max-width: 260px;
         }
 
-        /* =========================
-           GAME BUTTONS
-        ========================= */
-
         .games-grid {
             display: flex;
 
@@ -265,10 +253,6 @@
             background:
                 rgba(90, 160, 255, .10);
         }
-
-        /* =========================
-           BUTTON
-        ========================= */
 
         .btn {
             display: inline-block;
@@ -321,10 +305,6 @@
                 );
         }
 
-        /* =========================
-           STATUS
-        ========================= */
-
         .sensor-bar {
             width: 180px;
 
@@ -361,10 +341,6 @@
 
             font-size: 10px;
         }
-
-        /* =========================
-           MODAL
-        ========================= */
 
         .modal {
             position: fixed;
@@ -462,6 +438,11 @@
             transform: translateY(-2px);
         }
 
+        .amount:disabled {
+            opacity: .5;
+            cursor: wait;
+        }
+
         .close {
             margin-top: 16px;
 
@@ -479,10 +460,6 @@
 
             cursor: pointer;
         }
-
-        /* =========================
-           TOAST
-        ========================= */
 
         .toast {
             position: fixed;
@@ -511,15 +488,15 @@
             font-size: 12px;
 
             z-index: 2000;
+
+            max-width: 90%;
+
+            text-align: center;
         }
 
         .toast.show {
             display: block;
         }
-
-        /* =========================
-           MOBILE
-        ========================= */
 
         @media (max-width: 380px) {
 
@@ -531,7 +508,6 @@
                 font-size: 28px;
             }
         }
-
     </style>
 </head>
 
@@ -539,9 +515,7 @@
 
 <div class="container">
 
-    <!-- =========================
-         BALANCE
-    ========================= -->
+    <!-- BALANCE -->
 
     <div class="balance-card">
 
@@ -549,16 +523,13 @@
             შენი ბალანსი
         </div>
 
-        <div
-            class="balance"
-            id="balance">
-
+        <div class="balance" id="balance">
             $0.00
-
         </div>
 
         <button
             class="topup-button"
+            id="topupButton"
             onclick="openTopup()">
 
             💳 ბალანსის შევსება
@@ -568,9 +539,7 @@
     </div>
 
 
-    <!-- =========================
-         TOOLS HUB
-    ========================= -->
+    <!-- TOOLS HUB -->
 
     <div class="square">
 
@@ -591,6 +560,7 @@
             <a
                 href="https://aikox123.github.io/tools-hub/"
                 target="_blank"
+                rel="noopener noreferrer"
                 class="game-item">
 
                 🎮 Geode
@@ -600,6 +570,7 @@
             <a
                 href="https://aikox123.github.io/tools-hub/"
                 target="_blank"
+                rel="noopener noreferrer"
                 class="game-item">
 
                 🚗 GTA 5
@@ -611,6 +582,7 @@
         <a
             href="https://aikox123.github.io/tools-hub/"
             target="_blank"
+            rel="noopener noreferrer"
             class="btn btn-blue">
 
             ⬇️ უფასო
@@ -628,9 +600,7 @@
     </div>
 
 
-    <!-- =========================
-         ROUTINE $0.50
-    ========================= -->
+    <!-- ROUTINE 0.50 -->
 
     <div class="square">
 
@@ -648,7 +618,7 @@
 
         <button
             class="btn btn-blue"
-            onclick="buyProduct('routine50', 0.50)">
+            onclick="buyProduct('routine50')">
 
             🔓 $0.50 — გახსნა
 
@@ -670,9 +640,7 @@
     </div>
 
 
-    <!-- =========================
-         ROUTINE $0.70
-    ========================= -->
+    <!-- ROUTINE 0.70 -->
 
     <div class="square">
 
@@ -690,7 +658,7 @@
 
         <button
             class="btn btn-blue"
-            onclick="buyProduct('routine70', 0.70)">
+            onclick="buyProduct('routine70')">
 
             🔓 $0.70 — გახსნა
 
@@ -712,9 +680,7 @@
     </div>
 
 
-    <!-- =========================
-         FIVERR
-    ========================= -->
+    <!-- FIVERR -->
 
     <div class="square">
 
@@ -734,6 +700,7 @@
         <a
             href="https://www.fiverr.com/s/o8DrKwN"
             target="_blank"
+            rel="noopener noreferrer"
             class="btn btn-green">
 
             ✂️ ეწვიე
@@ -756,9 +723,7 @@
     </div>
 
 
-    <!-- =========================
-         AI
-    ========================= -->
+    <!-- AI -->
 
     <div
         class="square"
@@ -785,9 +750,7 @@
 </div>
 
 
-<!-- =========================
-     TOPUP MODAL
-========================= -->
+<!-- TOPUP MODAL -->
 
 <div
     class="modal"
@@ -807,56 +770,45 @@
 
             <button
                 class="amount"
-                onclick="topup(0.50)">
-
+                onclick="topup(0.50, this)">
                 $0.50
-
             </button>
 
             <button
                 class="amount"
-                onclick="topup(0.70)">
-
+                onclick="topup(0.70, this)">
                 $0.70
-
             </button>
 
             <button
                 class="amount"
-                onclick="topup(1.00)">
-
+                onclick="topup(1.00, this)">
                 $1.00
-
             </button>
 
             <button
                 class="amount"
-                onclick="topup(2.00)">
-
+                onclick="topup(2.00, this)">
                 $2.00
-
             </button>
 
             <button
                 class="amount"
-                onclick="topup(5.00)">
-
+                onclick="topup(5.00, this)">
                 $5.00
-
             </button>
 
             <button
                 class="amount"
-                onclick="topup(10.00)">
-
+                onclick="topup(10.00, this)">
                 $10.00
-
             </button>
 
         </div>
 
         <button
             class="close"
+            id="closeButton"
             onclick="closeTopup()">
 
             დახურვა
@@ -868,9 +820,7 @@
 </div>
 
 
-<!-- =========================
-     TOAST
-========================= -->
+<!-- TOAST -->
 
 <div
     class="toast"
@@ -892,6 +842,16 @@
 
     /*
     ============================================================
+    FRONTEND
+    ============================================================
+    */
+
+    const FRONTEND_URL =
+        "https://aikox123.github.io/tools-hub1/";
+
+
+    /*
+    ============================================================
     LOAD BALANCE
     ============================================================
     */
@@ -902,26 +862,28 @@
 
             const response =
                 await fetch(
-                    BACKEND_URL +
-                    "/api/balance",
+                    BACKEND_URL + "/api/balance",
                     {
                         method: "GET",
-                        credentials: "include"
+                        credentials: "include",
+                        cache: "no-store"
                     }
                 );
+
+            if (!response.ok) {
+                throw new Error(
+                    "HTTP " + response.status
+                );
+            }
 
             const data =
                 await response.json();
 
             if (data.success) {
 
-                document.getElementById(
-                    "balance"
-                ).textContent =
-                    "$" +
-                    Number(
-                        data.balance
-                    ).toFixed(2);
+                setBalance(
+                    data.balance
+                );
 
             }
 
@@ -939,6 +901,26 @@
 
     /*
     ============================================================
+    SET BALANCE
+    ============================================================
+    */
+
+    function setBalance(amount) {
+
+        const balance =
+            document.getElementById(
+                "balance"
+            );
+
+        balance.textContent =
+            "$" +
+            Number(amount).toFixed(2);
+
+    }
+
+
+    /*
+    ============================================================
     OPEN TOPUP
     ============================================================
     */
@@ -946,12 +928,8 @@
     function openTopup() {
 
         document
-            .getElementById(
-                "topupModal"
-            )
-            .classList.add(
-                "active"
-            );
+            .getElementById("topupModal")
+            .classList.add("active");
 
     }
 
@@ -965,12 +943,8 @@
     function closeTopup() {
 
         document
-            .getElementById(
-                "topupModal"
-            )
-            .classList.remove(
-                "active"
-            );
+            .getElementById("topupModal")
+            .classList.remove("active");
 
     }
 
@@ -981,12 +955,19 @@
     ============================================================
     */
 
-    async function topup(amount) {
+    async function topup(
+        amount,
+        button
+    ) {
+
+        if (button) {
+            button.disabled = true;
+        }
 
         try {
 
             showToast(
-                "⏳ გადახდის გვერდი იტვირთება..."
+                "⏳ PayPal-ის გადახდის გვერდი იტვირთება..."
             );
 
             const response =
@@ -1000,30 +981,57 @@
 
                         headers: {
                             "Content-Type":
+                                "application/json",
+
+                            "Accept":
                                 "application/json"
                         },
 
                         body:
                             JSON.stringify({
-                                amount: amount
+                                amount:
+                                    Number(amount)
                             })
                     }
                 );
 
-            const data =
-                await response.json();
+            let data;
+
+            try {
+
+                data =
+                    await response.json();
+
+            } catch {
+
+                throw new Error(
+                    "სერვერმა არასწორი პასუხი დააბრუნა"
+                );
+
+            }
+
 
             if (
+                response.ok &&
                 data.success &&
                 data.approvalUrl
             ) {
+
+                /*
+                PayPal-ის რეალურ checkout-ზე გადასვლა
+                */
 
                 window.location.href =
                     data.approvalUrl;
 
                 return;
-
             }
+
+
+            console.error(
+                "Topup response:",
+                data
+            );
 
             showToast(
                 data.error ||
@@ -1032,11 +1040,176 @@
 
         } catch (error) {
 
-            console.error(error);
+            console.error(
+                "Topup error:",
+                error
+            );
 
             showToast(
                 "სერვერთან დაკავშირება ვერ მოხერხდა"
             );
+
+        } finally {
+
+            if (button) {
+                button.disabled = false;
+            }
+
+        }
+
+    }
+
+
+    /*
+    ============================================================
+    CAPTURE PAYPAL PAYMENT
+    ============================================================
+    */
+
+    async function capturePayPalPayment() {
+
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
+
+        /*
+        PayPal ჩვეულებრივ აბრუნებს:
+        ?paypal_return=1&token=ORDER_ID
+        */
+
+        const paypalReturn =
+            params.get(
+                "paypal_return"
+            );
+
+        const orderId =
+            params.get("token");
+
+
+        if (
+            paypalReturn !== "1" ||
+            !orderId
+        ) {
+
+            return false;
+
+        }
+
+
+        try {
+
+            showToast(
+                "⏳ გადახდა მუშავდება..."
+            );
+
+
+            const response =
+                await fetch(
+                    BACKEND_URL +
+                    "/api/capture",
+                    {
+                        method: "POST",
+
+                        credentials: "include",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json",
+
+                            "Accept":
+                                "application/json"
+                        },
+
+                        body:
+                            JSON.stringify({
+                                orderId:
+                                    orderId
+                            })
+                    }
+                );
+
+
+            let data;
+
+            try {
+
+                data =
+                    await response.json();
+
+            } catch {
+
+                throw new Error(
+                    "Capture response is not JSON"
+                );
+
+            }
+
+
+            console.log(
+                "PayPal capture:",
+                data
+            );
+
+
+            if (
+                response.ok &&
+                data.success
+            ) {
+
+                setBalance(
+                    data.balance
+                );
+
+                showToast(
+                    "✅ გადახდა წარმატებით დასრულდა!"
+                );
+
+            } else {
+
+                showToast(
+                    data.error ||
+                    "გადახდის დასრულება ვერ მოხერხდა"
+                );
+
+            }
+
+
+            /*
+            URL-იდან PayPal-ის token-ის მოცილება.
+            */
+
+            window.history.replaceState(
+                {},
+                document.title,
+                FRONTEND_URL
+            );
+
+
+            /*
+            რამდენიმე წამში ბალანსის ხელახლა შემოწმება.
+            */
+
+            setTimeout(
+                loadBalance,
+                1000
+            );
+
+
+            return true;
+
+        } catch (error) {
+
+            console.error(
+                "Capture error:",
+                error
+            );
+
+            showToast(
+                "გადახდის დადასტურება ვერ მოხერხდა"
+            );
+
+            return false;
 
         }
 
@@ -1050,11 +1223,15 @@
     */
 
     async function buyProduct(
-        productId,
-        price
+        productId
     ) {
 
         try {
+
+            showToast(
+                "⏳ ვამოწმებ ბალანსს..."
+            );
+
 
             const response =
                 await fetch(
@@ -1067,6 +1244,9 @@
 
                         headers: {
                             "Content-Type":
+                                "application/json",
+
+                            "Accept":
                                 "application/json"
                         },
 
@@ -1078,23 +1258,28 @@
                     }
                 );
 
-            const data =
-                await response.json();
 
+            let data;
 
-            /*
-            წარმატებით შეძენა
-            */
+            try {
+
+                data =
+                    await response.json();
+
+            } catch {
+
+                throw new Error(
+                    "Invalid server response"
+                );
+
+            }
+
 
             if (data.success) {
 
-                document.getElementById(
-                    "balance"
-                ).textContent =
-                    "$" +
-                    Number(
-                        data.balance
-                    ).toFixed(2);
+                setBalance(
+                    data.balance
+                );
 
                 openRoutine(
                     productId
@@ -1104,10 +1289,6 @@
 
             }
 
-
-            /*
-            არასაკმარისი ბალანსი
-            */
 
             if (
                 data.error ===
@@ -1128,9 +1309,13 @@
                 "შეძენა ვერ მოხერხდა"
             );
 
+
         } catch (error) {
 
-            console.error(error);
+            console.error(
+                "Purchase error:",
+                error
+            );
 
             showToast(
                 "სერვერთან დაკავშირება ვერ მოხერხდა"
@@ -1160,6 +1345,7 @@
                 "✅ $0.50 რუტინა განბლოკილია!"
             );
 
+            return;
         }
 
 
@@ -1199,9 +1385,11 @@
             "show"
         );
 
+
         clearTimeout(
             window.toastTimer
         );
+
 
         window.toastTimer =
             setTimeout(
@@ -1212,7 +1400,7 @@
                     );
 
                 },
-                2500
+                3000
             );
 
     }
@@ -1220,23 +1408,7 @@
 
     /*
     ============================================================
-    PAGE LOAD
-    ============================================================
-    */
-
-    document.addEventListener(
-        "DOMContentLoaded",
-        function() {
-
-            loadBalance();
-
-        }
-    );
-
-
-    /*
-    ============================================================
-    CLOSE MODAL WHEN CLICKING OUTSIDE
+    CLOSE MODAL OUTSIDE
     ============================================================
     */
 
@@ -1256,6 +1428,39 @@
 
             }
         );
+
+
+    /*
+    ============================================================
+    PAGE LOAD
+    ============================================================
+    */
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        async function() {
+
+            /*
+            ჯერ PayPal დაბრუნება შევამოწმოთ.
+            */
+
+            const wasPayPalReturn =
+                await capturePayPalPayment();
+
+
+            /*
+            შემდეგ ჩვეულებრივ ბალანსს ვტვირთავთ,
+            თუ PayPal დაბრუნება არ ყოფილა.
+            */
+
+            if (!wasPayPalReturn) {
+
+                await loadBalance();
+
+            }
+
+        }
+    );
 
 </script>
 
