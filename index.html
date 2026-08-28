@@ -1,188 +1,531 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="ka">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 ```
-<title>Tools Hub - Add Balance</title>
-
-<!-- PayPal JavaScript SDK v6 - SANDBOX -->
-<script src="https://www.sandbox.paypal.com/web-sdk/v6/core"></script>
+<title>Tools Hub</title>
 
 <style>
     * {
+        margin: 0;
+        padding: 0;
         box-sizing: border-box;
     }
 
     body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #f4f6f8;
-        color: #111827;
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        background:
+            radial-gradient(
+                ellipse at 20% 20%,
+                rgba(70, 130, 255, 0.12),
+                transparent 55%
+            ),
+            radial-gradient(
+                ellipse at 80% 80%,
+                rgba(130, 80, 255, 0.08),
+                transparent 55%
+            ),
+            #081321;
+
+        min-height: 100vh;
+        color: white;
+        padding: 25px 15px;
     }
 
     .container {
-        width: min(520px, 94%);
-        margin: 40px auto;
+        width: 100%;
+        max-width: 420px;
+        margin: auto;
+
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
     }
 
-    .card {
-        background: white;
-        border-radius: 18px;
-        padding: 25px;
-        box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-    }
+    /* =========================
+       BALANCE
+    ========================= */
 
-    h1 {
-        margin-top: 0;
+    .balance-card {
+        width: 100%;
+        padding: 22px;
+        border-radius: 25px;
+
+        background: rgba(20, 40, 75, 0.65);
+
+        border: 1px solid rgba(130, 195, 255, 0.12);
+
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+
+        box-shadow:
+            0 20px 60px rgba(0,0,0,.35),
+            inset 0 1px 0 rgba(255,255,255,.04);
+
         text-align: center;
-    }
-
-    .balance {
-        background: #111827;
-        color: white;
-        border-radius: 14px;
-        padding: 18px;
-        text-align: center;
-        margin-bottom: 22px;
     }
 
     .balance-title {
-        font-size: 14px;
-        opacity: .75;
+        color: rgba(200,220,255,.55);
+        font-size: 12px;
+        margin-bottom: 6px;
     }
 
-    .balance-value {
+    .balance {
         font-size: 32px;
-        font-weight: bold;
-        margin-top: 5px;
+        font-weight: 800;
+
+        background:
+            linear-gradient(
+                135deg,
+                #8dc3ff,
+                #5795ff
+            );
+
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .topup-button {
+        margin-top: 14px;
+        width: 100%;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 30px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #5b9aff,
+                #3a70d0
+            );
+
+        color: white;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: .25s;
+    }
+
+    .topup-button:hover {
+        transform: translateY(-2px);
+        box-shadow:
+            0 10px 30px rgba(60,130,255,.2);
+    }
+
+    /* =========================
+       SQUARE
+    ========================= */
+
+    .square {
+        width: 100%;
+        max-width: 340px;
+
+        aspect-ratio: 1 / 1;
+
+        margin: auto;
+
+        padding: 28px 22px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        text-align: center;
+
+        border-radius: 28px;
+
+        background:
+            rgba(20,40,75,.55);
+
+        border:
+            1px solid rgba(130,195,255,.10);
+
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+
+        box-shadow:
+            0 20px 60px rgba(0,0,0,.4),
+            inset 0 1px 0 rgba(255,255,255,.04);
+
+        transition: .3s;
+    }
+
+    .square:hover {
+        transform: translateY(-4px);
+
+        box-shadow:
+            0 25px 70px rgba(0,0,0,.5);
+    }
+
+    .glow-ring {
+        width: 55px;
+        height: 55px;
+
+        border-radius: 50%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border:
+            1px solid rgba(130,195,255,.12);
+
+        margin-bottom: 10px;
+    }
+
+    .logo {
+        font-size: 30px;
+    }
+
+    .title {
+        color: #f1f6ff;
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    .title span {
+        background:
+            linear-gradient(
+                135deg,
+                #7ab7ff,
+                #4a8eff
+            );
+
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .sub {
+        color:
+            rgba(190,215,255,.48);
+
+        font-size: 11px;
+
+        line-height: 1.5;
+
+        max-width: 260px;
+    }
+
+    /* =========================
+       GAME BUTTONS
+    ========================= */
+
+    .games-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        margin: 14px 0;
+    }
+
+    .game-item {
+        color:
+            rgba(220,235,255,.75);
+
+        background:
+            rgba(255,255,255,.04);
+
+        border:
+            1px solid rgba(255,255,255,.06);
+
+        padding:
+            7px 15px;
+
+        border-radius: 12px;
+
+        font-size: 11px;
+
+        text-decoration: none;
+
+        transition: .25s;
+    }
+
+    .game-item:hover {
+        transform: translateY(-2px);
+
+        background:
+            rgba(90,160,255,.10);
+    }
+
+    /* =========================
+       BUTTON
+    ========================= */
+
+    .btn {
+        display: inline-block;
+
+        margin-top: 13px;
+
+        padding: 11px 27px;
+
+        border-radius: 30px;
+
+        border: none;
+
+        color: white;
+
+        text-decoration: none;
+
+        font-size: 13px;
+
+        font-weight: 700;
+
+        cursor: pointer;
+
+        transition: .25s;
+    }
+
+    .btn:hover {
+        transform:
+            translateY(-2px)
+            scale(1.02);
+    }
+
+    .btn-blue {
+        background:
+            linear-gradient(
+                135deg,
+                #5b9aff,
+                #3a7acc
+            );
+
+        box-shadow:
+            0 5px 25px rgba(60,130,255,.15);
+    }
+
+    .btn-green {
+        background:
+            linear-gradient(
+                135deg,
+                #28d889,
+                #0a9a5a
+            );
+    }
+
+    /* =========================
+       STATUS
+    ========================= */
+
+    .sensor-bar {
+        width: 180px;
+
+        height: 3px;
+
+        margin-top: 15px;
+
+        background:
+            rgba(255,255,255,.05);
+
+        border-radius: 10px;
+
+        overflow: hidden;
+    }
+
+    .sensor-fill {
+        height: 100%;
+
+        width: 60%;
+
+        background:
+            linear-gradient(
+                90deg,
+                #5b9aff,
+                #a855f7
+            );
+    }
+
+    .status {
+        margin-top: 6px;
+
+        color:
+            rgba(190,215,255,.35);
+
+        font-size: 10px;
+    }
+
+    /* =========================
+       MODAL
+    ========================= */
+
+    .modal {
+        position: fixed;
+
+        inset: 0;
+
+        display: none;
+
+        align-items: center;
+
+        justify-content: center;
+
+        padding: 20px;
+
+        background:
+            rgba(0,0,0,.65);
+
+        z-index: 1000;
+    }
+
+    .modal.active {
+        display: flex;
+    }
+
+    .modal-box {
+        width: 100%;
+        max-width: 360px;
+
+        padding: 25px;
+
+        border-radius: 25px;
+
+        background:
+            #10233c;
+
+        border:
+            1px solid rgba(130,195,255,.12);
+
+        box-shadow:
+            0 25px 80px rgba(0,0,0,.55);
+
+        text-align: center;
+    }
+
+    .modal-title {
+        font-size: 20px;
+
+        font-weight: 700;
+
+        margin-bottom: 6px;
+    }
+
+    .modal-sub {
+        font-size: 11px;
+
+        color:
+            rgba(190,215,255,.45);
+
+        margin-bottom: 18px;
     }
 
     .amounts {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+
+        grid-template-columns:
+            repeat(2,1fr);
+
         gap: 10px;
-        margin: 18px 0;
     }
 
-    .amount-btn {
-        border: 1px solid #d1d5db;
-        background: white;
-        padding: 13px 5px;
-        border-radius: 10px;
-        cursor: pointer;
-        font-size: 16px;
-        font-weight: bold;
-    }
-
-    .amount-btn:hover {
-        background: #f3f4f6;
-    }
-
-    .amount-btn.selected {
-        background: #111827;
-        color: white;
-        border-color: #111827;
-    }
-
-    .section {
-        margin-top: 24px;
-    }
-
-    .section h2 {
-        font-size: 18px;
-        margin-bottom: 12px;
-    }
-
-    .field {
-        border: 1px solid #d1d5db;
-        border-radius: 9px;
-        min-height: 48px;
-        padding: 4px 10px;
-        margin-bottom: 10px;
-        background: white;
-    }
-
-    #card-fields-section {
-        display: none;
-    }
-
-    button.main-button {
-        width: 100%;
-        border: 0;
-        border-radius: 10px;
-        padding: 14px;
-        font-size: 17px;
-        font-weight: bold;
-        cursor: pointer;
-        margin-top: 8px;
-    }
-
-    #pay-button {
-        background: #111827;
-        color: white;
-    }
-
-    #paypal-button {
-        background: #ffc439;
-        color: #111827;
-    }
-
-    button:disabled {
-        opacity: .55;
-        cursor: not-allowed;
-    }
-
-    .message {
-        margin-top: 18px;
+    .amount {
         padding: 12px;
-        border-radius: 10px;
+
+        border-radius: 15px;
+
+        border:
+            1px solid rgba(130,195,255,.10);
+
+        background:
+            rgba(255,255,255,.04);
+
+        color: white;
+
+        cursor: pointer;
+
+        font-weight: 700;
+
+        transition: .2s;
+    }
+
+    .amount:hover {
+        background:
+            rgba(90,160,255,.12);
+
+        transform: translateY(-2px);
+    }
+
+    .amount:disabled {
+        opacity: .5;
+        cursor: wait;
+    }
+
+    .close {
+        margin-top: 16px;
+
+        padding: 9px 20px;
+
+        border-radius: 20px;
+
+        border: none;
+
+        background:
+            rgba(255,255,255,.06);
+
+        color:
+            rgba(255,255,255,.7);
+
+        cursor: pointer;
+    }
+
+    /* =========================
+       TOAST
+    ========================= */
+
+    .toast {
+        position: fixed;
+
+        bottom: 25px;
+
+        left: 50%;
+
+        transform:
+            translateX(-50%);
+
         display: none;
-        font-size: 14px;
-    }
 
-    .success {
-        display: block;
-        background: #dcfce7;
-        color: #166534;
-    }
+        padding: 11px 22px;
 
-    .error {
-        display: block;
-        background: #fee2e2;
-        color: #991b1b;
-    }
+        border-radius: 25px;
 
-    .loading {
-        display: block;
-        background: #e0f2fe;
-        color: #075985;
-    }
+        background:
+            rgba(7,18,34,.95);
 
-    .divider {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin: 22px 0;
-        color: #6b7280;
-        font-size: 13px;
-    }
+        border:
+            1px solid rgba(110,180,255,.10);
 
-    .divider::before,
-    .divider::after {
-        content: "";
-        height: 1px;
-        background: #e5e7eb;
-        flex: 1;
-    }
+        color: white;
 
-    .small {
-        text-align: center;
         font-size: 12px;
-        color: #6b7280;
-        margin-top: 15px;
+
+        z-index: 2000;
+
+        white-space: nowrap;
+    }
+
+    .toast.show {
+        display: block;
+    }
+
+    @media(max-width:380px) {
+
+        .square {
+            max-width: 100%;
+        }
+
+        .balance {
+            font-size: 28px;
+        }
+
+        .toast {
+            white-space: normal;
+            text-align: center;
+            max-width: 90%;
+        }
     }
 </style>
 ```
@@ -194,88 +537,226 @@
 <div class="container">
 
 ```
-<div class="card">
+<!-- BALANCE -->
 
-    <h1>Tools Hub</h1>
+<div class="balance-card">
 
-    <div class="balance">
-        <div class="balance-title">Current Balance</div>
-        <div class="balance-value" id="balance">$0.00</div>
+    <div class="balance-title">
+        შენი ბალანსი
     </div>
 
-    <h2>Select Amount</h2>
-
-    <div class="amounts">
-        <button class="amount-btn" data-amount="0.50">$0.50</button>
-        <button class="amount-btn" data-amount="0.70">$0.70</button>
-        <button class="amount-btn" data-amount="1.00">$1.00</button>
-        <button class="amount-btn" data-amount="2.00">$2.00</button>
-        <button class="amount-btn" data-amount="5.00">$5.00</button>
-        <button class="amount-btn" data-amount="10.00">$10.00</button>
+    <div class="balance" id="balance">
+        $0.00
     </div>
 
-    <!-- =====================================================
-         PAYPAL BUTTON
-    ====================================================== -->
+    <button
+        class="topup-button"
+        onclick="openTopup()">
 
-    <div class="section">
+        💳 ბალანსის შევსება
 
-        <h2>Pay with PayPal</h2>
+    </button>
 
-        <button
-            id="paypal-button"
-            class="main-button"
-            disabled
-        >
-            Pay with PayPal
-        </button>
+</div>
+
+
+<!-- TOOLS HUB -->
+
+<div class="square">
+
+    <div class="glow-ring">
+        <div class="logo">🎮</div>
+    </div>
+
+    <div class="title">
+        ⚡ <span>Tools Hub</span>
+    </div>
+
+    <div class="sub">
+        თამაშები და სასარგებლო რესურსები
+    </div>
+
+    <div class="games-grid">
+
+        <a
+            href="https://aikox123.github.io/tools-hub/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="game-item">
+
+            🎮 Geode
+
+        </a>
+
+        <a
+            href="https://aikox123.github.io/tools-hub/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="game-item">
+
+            🚗 GTA 5
+
+        </a>
 
     </div>
 
-    <div class="divider">
-        OR PAY WITH CARD
+    <a
+        href="https://aikox123.github.io/tools-hub/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-blue">
+
+        ⬇️ უფასო
+
+    </a>
+
+    <div class="sensor-bar">
+        <div class="sensor-fill"></div>
     </div>
 
-    <!-- =====================================================
-         CARD FIELDS
-    ====================================================== -->
+    <div class="status">
+        ● მზად არის
+    </div>
 
-    <div id="card-fields-section" class="section">
+</div>
 
-        <h2>Credit / Debit Card</h2>
 
+<!-- DAY ROUTINE -->
+
+<div class="square">
+
+    <div class="glow-ring">
+        <div class="logo">📋</div>
+    </div>
+
+    <div class="title">
+        <span>დღის</span> რუტინა
+    </div>
+
+    <div class="sub">
+        დაგეგმილი ყოველდღიური რუტინა
+    </div>
+
+    <button
+        class="btn btn-blue"
+        onclick="buyProduct('routine50')">
+
+        🔓 $0.50 — გახსნა
+
+    </button>
+
+    <div class="sensor-bar">
         <div
-            id="card-number"
-            class="field"
-        ></div>
-
-        <div
-            id="card-expiry"
-            class="field"
-        ></div>
-
-        <div
-            id="card-cvv"
-            class="field"
-        ></div>
-
-        <button
-            id="pay-button"
-            class="main-button"
-            disabled
-        >
-            Pay by Card
-        </button>
-
+            class="sensor-fill"
+            style="width:40%">
+        </div>
     </div>
 
-    <div
-        id="message"
-        class="message"
-    ></div>
+    <div class="status">
+        ⏳ ხელმისაწვდომია
+    </div>
 
-    <div class="small">
-        Payments are processed securely by PayPal.
+</div>
+
+
+<!-- ROUTINES -->
+
+<div class="square">
+
+    <div class="glow-ring">
+        <div class="logo">💪</div>
+    </div>
+
+    <div class="title">
+        <span>რუტინები</span>
+    </div>
+
+    <div class="sub">
+        აირჩიე ხელმისაწვდომი რუტინა
+    </div>
+
+    <button
+        class="btn btn-blue"
+        onclick="buyProduct('routine70')">
+
+        🔓 $0.70 — გახსნა
+
+    </button>
+
+    <div class="sensor-bar">
+        <div
+            class="sensor-fill"
+            style="width:85%">
+        </div>
+    </div>
+
+    <div class="status">
+        ⚡ აქტიური
+    </div>
+
+</div>
+
+
+<!-- CONTENT CREATOR -->
+
+<div class="square">
+
+    <div class="glow-ring">
+        <div class="logo">🎬</div>
+    </div>
+
+    <div class="title">
+        თუ ხარ <span>კონტენტ კრეატორი</span>
+    </div>
+
+    <div class="sub">
+        ვიდეოების ედიტინგის სერვისი
+    </div>
+
+    <a
+        href="https://www.fiverr.com/s/o8DrKwN"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-green">
+
+        ✂️ ეწვიე
+
+    </a>
+
+    <div class="sensor-bar">
+        <div
+            class="sensor-fill"
+            style="width:50%">
+        </div>
+    </div>
+
+    <div class="status">
+        🎬 ვიდეო ედითი
+    </div>
+
+</div>
+
+
+<!-- AI -->
+
+<div
+    class="square"
+    style="opacity:.5">
+
+    <div class="glow-ring">
+        <div class="logo">🤖</div>
+    </div>
+
+    <div class="title">
+        <span>AI</span> Assistant
+    </div>
+
+    <div class="sub">
+        დროებით მიუწვდომელია
+    </div>
+
+    <div class="status">
+        ⏳ განახლება მალე
     </div>
 
 </div>
@@ -283,114 +764,123 @@
 
 </div>
 
+<!-- TOPUP MODAL -->
+
+<div
+    class="modal"
+    id="topupModal">
+
+```
+<div class="modal-box">
+
+    <div class="modal-title">
+        💳 ბალანსის შევსება
+    </div>
+
+    <div class="modal-sub">
+        აირჩიე თანხა
+    </div>
+
+    <div class="amounts">
+
+        <button
+            class="amount"
+            onclick="topup(0.50, this)">
+            $0.50
+        </button>
+
+        <button
+            class="amount"
+            onclick="topup(0.70, this)">
+            $0.70
+        </button>
+
+        <button
+            class="amount"
+            onclick="topup(1, this)">
+            $1.00
+        </button>
+
+        <button
+            class="amount"
+            onclick="topup(2, this)">
+            $2.00
+        </button>
+
+        <button
+            class="amount"
+            onclick="topup(5, this)">
+            $5.00
+        </button>
+
+        <button
+            class="amount"
+            onclick="topup(10, this)">
+            $10.00
+        </button>
+
+    </div>
+
+    <button
+        class="close"
+        onclick="closeTopup()">
+
+        დახურვა
+
+    </button>
+
+</div>
+```
+
+</div>
+
+<div
+    class="toast"
+    id="toast">
+</div>
+
 <script>
 
-    // ============================================================
-    // CONFIG
-    // ============================================================
-
-    const API_URL =
-        "https://tools-hub-backend.onrender.com";
-
     /*
-        Client ID is safe to use in frontend.
-
-        DO NOT PUT YOUR PAYPAL CLIENT SECRET HERE.
+    ============================================================
+    TOOLS HUB
+    PAYPAL / BACKEND CONNECTION
+    ============================================================
     */
 
-    const PAYPAL_CLIENT_ID =
-        "BAAHSfnFMKkh0vJ9fXNFejON388u3JiuhK31Th6li_0ikrm5-Xgs7TYClO9UNO5HEbzNFxHu3Q4gLMg3yM";
+    /*
+       შენი Render backend
+    */
+
+    const BACKEND_URL =
+        "https://tools-hub-backend.onrender.com";
 
 
-    // ============================================================
-    // STATE
-    // ============================================================
+    /*
+    ============================================================
+    HELPER
+    ============================================================
+    */
 
-    let selectedAmount = null;
+    async function readJson(response) {
 
-    let paypalSdk = null;
+        const text = await response.text();
 
-    let cardSession = null;
-
-    let cardFieldsReady = false;
-
-
-    // ============================================================
-    // ELEMENTS
-    // ============================================================
-
-    const balanceElement =
-        document.getElementById("balance");
-
-    const messageElement =
-        document.getElementById("message");
-
-    const paypalButton =
-        document.getElementById("paypal-button");
-
-    const cardButton =
-        document.getElementById("pay-button");
-
-    const cardFieldsSection =
-        document.getElementById("card-fields-section");
-
-
-    // ============================================================
-    // MESSAGE
-    // ============================================================
-
-    function showMessage(text, type = "loading") {
-
-        messageElement.textContent = text;
-
-        messageElement.className =
-            "message " + type;
+        try {
+            return JSON.parse(text);
+        } catch {
+            throw new Error(
+                "სერვერმა არ დააბრუნა სწორი JSON"
+            );
+        }
     }
 
 
-    function hideMessage() {
-
-        messageElement.textContent = "";
-
-        messageElement.className =
-            "message";
-    }
-
-
-    // ============================================================
-    // AMOUNT SELECTION
-    // ============================================================
-
-    document
-        .querySelectorAll(".amount-btn")
-        .forEach(button => {
-
-            button.addEventListener("click", () => {
-
-                document
-                    .querySelectorAll(".amount-btn")
-                    .forEach(btn =>
-                        btn.classList.remove("selected")
-                    );
-
-                button.classList.add("selected");
-
-                selectedAmount =
-                    Number(button.dataset.amount);
-
-                paypalButton.disabled = false;
-
-                if (cardFieldsReady) {
-                    cardButton.disabled = false;
-                }
-            });
-
-        });
-
-
-    // ============================================================
-    // LOAD BALANCE
-    // ============================================================
+    /*
+    ============================================================
+    LOAD BALANCE
+    ============================================================
+    */
 
     async function loadBalance() {
 
@@ -398,21 +888,41 @@
 
             const response =
                 await fetch(
-                    `${API_URL}/api/balance`,
+                    BACKEND_URL +
+                    "/api/balance",
                     {
                         method: "GET",
                         credentials: "include"
                     }
                 );
 
+            if (!response.ok) {
+                throw new Error(
+                    "Balance HTTP " +
+                    response.status
+                );
+            }
+
             const data =
-                await response.json();
+                await readJson(response);
 
             if (data.success) {
 
-                balanceElement.textContent =
-                    `$${Number(data.balance).toFixed(2)}`;
+                const balance =
+                    Number(data.balance || 0);
 
+                document.getElementById(
+                    "balance"
+                ).textContent =
+                    "$" +
+                    balance.toFixed(2);
+
+            } else {
+
+                document.getElementById(
+                    "balance"
+                ).textContent =
+                    "$0.00";
             }
 
         } catch (error) {
@@ -422,725 +932,400 @@
                 error
             );
 
-        }
-    }
-
-
-    // ============================================================
-    // CREATE ORDER
-    // ============================================================
-
-    async function createOrder() {
-
-        if (!selectedAmount) {
-
-            throw new Error(
-                "Please select an amount."
-            );
-        }
-
-        const response =
-            await fetch(
-                `${API_URL}/api/create-topup`,
-                {
-                    method: "POST",
-
-                    credentials: "include",
-
-                    headers: {
-                        "Content-Type":
-                            "application/json"
-                    },
-
-                    body: JSON.stringify({
-                        amount: selectedAmount
-                    })
-                }
-            );
-
-        const data =
-            await response.json();
-
-        if (!response.ok || !data.success) {
-
-            throw new Error(
-                data.error ||
-                "Could not create PayPal order."
-            );
-        }
-
-        return data;
-    }
-
-
-    // ============================================================
-    // CAPTURE ORDER
-    // ============================================================
-
-    async function captureOrder(orderId) {
-
-        const response =
-            await fetch(
-                `${API_URL}/api/capture`,
-                {
-                    method: "POST",
-
-                    credentials: "include",
-
-                    headers: {
-                        "Content-Type":
-                            "application/json"
-                    },
-
-                    body: JSON.stringify({
-                        orderId: orderId
-                    })
-                }
-            );
-
-        const data =
-            await response.json();
-
-        if (!response.ok || !data.success) {
-
-            throw new Error(
-                data.error ||
-                data.message ||
-                "Payment capture failed."
-            );
-        }
-
-        return data;
-    }
-
-
-    // ============================================================
-    // PAYPAL REDIRECT PAYMENT
-    // ============================================================
-
-    paypalButton.addEventListener(
-        "click",
-        async () => {
-
-            if (!selectedAmount) {
-
-                showMessage(
-                    "Please select an amount first.",
-                    "error"
-                );
-
-                return;
-            }
-
-            try {
-
-                paypalButton.disabled = true;
-
-                cardButton.disabled = true;
-
-                showMessage(
-                    "Creating PayPal payment...",
-                    "loading"
-                );
-
-                const order =
-                    await createOrder();
-
-                /*
-                    Backend returns PayPal approval URL.
-                    Buyer is redirected to PayPal.
-                */
-
-                window.location.href =
-                    order.approvalUrl;
-
-            } catch (error) {
-
-                console.error(
-                    "PayPal error:",
-                    error
-                );
-
-                showMessage(
-                    error.message ||
-                    "PayPal payment failed.",
-                    "error"
-                );
-
-                paypalButton.disabled = false;
-
-                if (selectedAmount) {
-                    cardButton.disabled =
-                        !cardFieldsReady;
-                }
-            }
-
-        }
-    );
-
-
-    // ============================================================
-    // INITIALIZE PAYPAL V6
-    // ============================================================
-
-    async function initializePayPal() {
-
-        try {
-
-            if (
-                !window.paypal ||
-                !window.paypal.createInstance
-            ) {
-
-                throw new Error(
-                    "PayPal SDK did not load."
-                );
-            }
-
             /*
-                Initialize PayPal v6.
-
-                Client ID is public/browser-safe.
+               თუ მომხმარებელი ჯერ არ არის
+               ავტორიზებული, უბრალოდ $0.00
+               გამოჩნდება.
             */
 
-            paypalSdk =
-                await window.paypal.createInstance({
-
-                    clientId:
-                        PAYPAL_CLIENT_ID,
-
-                    components: [
-                        "paypal-payments",
-                        "card-fields"
-                    ],
-
-                    pageType:
-                        "checkout",
-
-                    locale:
-                        "en-US"
-                });
-
-
-            console.log(
-                "PayPal SDK initialized."
-            );
-
-
-            // ====================================================
-            // CHECK ELIGIBILITY
-            // ====================================================
-
-            let paymentMethods;
-
-            try {
-
-                paymentMethods =
-                    await paypalSdk.findEligibleMethods({
-
-                        currencyCode: "USD"
-
-                    });
-
-            } catch (eligibilityError) {
-
-                console.error(
-                    "Eligibility check failed:",
-                    eligibilityError
-                );
-
-                /*
-                    PayPal redirect still works through
-                    the backend, so we don't disable it.
-                */
-
-                return;
-
-            }
-
-
-            // ====================================================
-            // CARD FIELDS
-            // ====================================================
-
-            let cardEligible = false;
-
-            try {
-
-                /*
-                    Card Fields eligibility.
-                    Some PayPal v6 environments expose
-                    advanced_cards eligibility.
-                */
-
-                if (
-                    typeof paymentMethods.isEligible ===
-                    "function"
-                ) {
-
-                    cardEligible =
-                        paymentMethods.isEligible(
-                            "advanced_cards"
-                        );
-
-                }
-
-            } catch (error) {
-
-                console.error(
-                    "Card eligibility error:",
-                    error
-                );
-
-            }
-
-
-            if (!cardEligible) {
-
-                console.log(
-                    "Card Fields are not eligible for this PayPal account."
-                );
-
-                cardFieldsSection.style.display =
-                    "none";
-
-                return;
-            }
-
-
-            // ====================================================
-            // CREATE CARD SESSION
-            // ====================================================
-
-            cardSession =
-                paypalSdk
-                    .createCardFieldsOneTimePaymentSession();
-
-
-            // ====================================================
-            // CARD NUMBER
-            // ====================================================
-
-            const numberField =
-                cardSession.createCardFieldsComponent({
-
-                    type: "number",
-
-                    placeholder:
-                        "Card number",
-
-                    style: {
-                        input: {
-                            fontSize: "16px"
-                        }
-                    }
-
-                });
-
-
-            // ====================================================
-            // EXPIRY
-            // ====================================================
-
-            const expiryField =
-                cardSession.createCardFieldsComponent({
-
-                    type: "expiry",
-
-                    placeholder:
-                        "MM/YY"
-
-                });
-
-
-            // ====================================================
-            // CVV
-            // ====================================================
-
-            const cvvField =
-                cardSession.createCardFieldsComponent({
-
-                    type: "cvv",
-
-                    placeholder:
-                        "CVV"
-
-                });
-
-
-            // ====================================================
-            // MOUNT
-            // ====================================================
-
-            document
-                .getElementById("card-number")
-                .appendChild(numberField);
-
-            document
-                .getElementById("card-expiry")
-                .appendChild(expiryField);
-
-            document
-                .getElementById("card-cvv")
-                .appendChild(cvvField);
-
-
-            cardFieldsSection.style.display =
-                "block";
-
-
-            cardFieldsReady = true;
-
-            cardButton.disabled =
-                !selectedAmount;
-
-
-            console.log(
-                "Card Fields initialized."
-            );
-
-
-        } catch (error) {
-
-            console.error(
-                "PayPal SDK initialization failed:",
-                error
-            );
-
-            cardFieldsSection.style.display =
-                "none";
+            document.getElementById(
+                "balance"
+            ).textContent =
+                "$0.00";
         }
     }
 
 
-    // ============================================================
-    // CARD PAYMENT
-    // ============================================================
+    /*
+    ============================================================
+    TOPUP WINDOW
+    ============================================================
+    */
 
-    cardButton.addEventListener(
-        "click",
-        async () => {
+    function openTopup() {
 
-            if (!selectedAmount) {
+        document
+            .getElementById(
+                "topupModal"
+            )
+            .classList.add("active");
+    }
 
-                showMessage(
-                    "Please select an amount first.",
-                    "error"
-                );
 
-                return;
-            }
+    function closeTopup() {
 
-            if (!cardSession) {
+        document
+            .getElementById(
+                "topupModal"
+            )
+            .classList.remove("active");
+    }
 
-                showMessage(
-                    "Card payment is not available.",
-                    "error"
-                );
 
-                return;
-            }
+    /*
+    ============================================================
+    PAYPAL TOPUP
+    ============================================================
+    */
 
-            try {
+    async function topup(amount, button) {
 
-                cardButton.disabled = true;
+        if (!Number.isFinite(amount) || amount <= 0) {
 
-                paypalButton.disabled = true;
-
-                showMessage(
-                    "Creating payment...",
-                    "loading"
-                );
-
-
-                // ================================================
-                // CREATE PAYPAL ORDER
-                // ================================================
-
-                const order =
-                    await createOrder();
-
-
-                // ================================================
-                // SUBMIT CARD
-                // ================================================
-
-                showMessage(
-                    "Processing card payment...",
-                    "loading"
-                );
-
-
-                const result =
-                    await cardSession.submit(
-                        order.orderId,
-                        {
-                            billingAddress: {
-                                postalCode:
-                                    ""
-                            }
-                        }
-                    );
-
-
-                console.log(
-                    "Card result:",
-                    result
-                );
-
-
-                // ================================================
-                // SUCCESS
-                // ================================================
-
-                if (
-                    result.state ===
-                    "succeeded"
-                ) {
-
-                    showMessage(
-                        "Payment approved. Updating balance...",
-                        "loading"
-                    );
-
-
-                    const captured =
-                        await captureOrder(
-                            result.data.orderId ||
-                            order.orderId
-                        );
-
-
-                    await loadBalance();
-
-
-                    showMessage(
-                        `Payment successful! $${Number(captured.credited).toFixed(2)} added to your balance.`,
-                        "success"
-                    );
-
-
-                    paypalButton.disabled =
-                        false;
-
-
-                    cardButton.disabled =
-                        false;
-
-
-                    return;
-                }
-
-
-                // ================================================
-                // CANCELLED
-                // ================================================
-
-                if (
-                    result.state ===
-                    "canceled"
-                ) {
-
-                    showMessage(
-                        "Payment authentication was cancelled. Please try again.",
-                        "error"
-                    );
-
-                    paypalButton.disabled =
-                        false;
-
-                    cardButton.disabled =
-                        false;
-
-                    return;
-                }
-
-
-                // ================================================
-                // FAILED
-                // ================================================
-
-                if (
-                    result.state ===
-                    "failed"
-                ) {
-
-                    showMessage(
-                        result.data?.message ||
-                        "Payment failed. Please check your card details.",
-                        "error"
-                    );
-
-                    paypalButton.disabled =
-                        false;
-
-                    cardButton.disabled =
-                        false;
-
-                    return;
-                }
-
-
-                showMessage(
-                    "Payment could not be completed.",
-                    "error"
-                );
-
-
-                paypalButton.disabled =
-                    false;
-
-                cardButton.disabled =
-                    false;
-
-
-            } catch (error) {
-
-                console.error(
-                    "Card payment error:",
-                    error
-                );
-
-                showMessage(
-                    error.message ||
-                    "An unexpected payment error occurred.",
-                    "error"
-                );
-
-                paypalButton.disabled =
-                    false;
-
-                cardButton.disabled =
-                    false;
-            }
-
-        }
-    );
-
-
-    // ============================================================
-    // HANDLE PAYPAL RETURN
-    // ============================================================
-
-    async function handlePayPalReturn() {
-
-        const params =
-            new URLSearchParams(
-                window.location.search
+            showToast(
+                "❌ თანხა არასწორია"
             );
-
-        const paypalReturn =
-            params.get(
-                "paypal_return"
-            );
-
-        const orderId =
-            params.get(
-                "token"
-            );
-
-
-        if (
-            paypalReturn !== "1" ||
-            !orderId
-        ) {
 
             return;
         }
 
 
+        if (button) {
+            button.disabled = true;
+        }
+
+
+        showToast(
+            "⏳ PayPal-ის გადახდა მზადდება..."
+        );
+
+
         try {
 
-            paypalButton.disabled =
-                true;
+            const response =
+                await fetch(
+                    BACKEND_URL +
+                    "/api/create-topup",
+                    {
+                        method: "POST",
 
-            cardButton.disabled =
-                true;
+                        credentials: "include",
 
-            showMessage(
-                "Completing PayPal payment...",
-                "loading"
-            );
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
 
-
-            const result =
-                await captureOrder(
-                    orderId
+                        body:
+                            JSON.stringify({
+                                amount:
+                                    Number(
+                                        amount.toFixed(2)
+                                    )
+                            })
+                    }
                 );
 
 
-            await loadBalance();
+            const data =
+                await readJson(response);
 
 
-            showMessage(
-                `Payment successful! $${Number(result.credited).toFixed(2)} added to your balance.`,
-                "success"
+            console.log(
+                "Topup response:",
+                data
             );
 
 
             /*
-                Remove PayPal query parameters
-                from the browser URL.
+               Backend-მა უნდა დააბრუნოს:
+
+               {
+                   success: true,
+                   approvalUrl: "https://..."
+               }
             */
 
-            window.history.replaceState(
-                {},
-                document.title,
-                window.location.pathname
-            );
+            if (
+                data.success &&
+                data.approvalUrl
+            ) {
+
+                /*
+                   PayPal-ის გვერდზე გადადის.
+                */
+
+                window.location.href =
+                    data.approvalUrl;
+
+                return;
+            }
 
 
-            paypalButton.disabled =
-                false;
+            /*
+               თუ backend error-ს აბრუნებს
+            */
 
-            cardButton.disabled =
-                !cardFieldsReady;
+            if (data.error) {
+
+                showToast(
+                    "❌ " +
+                    String(data.error)
+                );
+
+            } else {
+
+                showToast(
+                    "❌ PayPal გადახდის შექმნა ვერ მოხერხდა"
+                );
+            }
 
 
         } catch (error) {
 
             console.error(
-                "PayPal return error:",
+                "Topup error:",
                 error
             );
 
-            showMessage(
-                error.message ||
-                "Could not complete PayPal payment.",
-                "error"
+            showToast(
+                "❌ სერვერთან დაკავშირება ვერ მოხერხდა"
             );
 
+        } finally {
 
-            window.history.replaceState(
-                {},
-                document.title,
-                window.location.pathname
-            );
-
-
-            paypalButton.disabled =
-                false;
-
-            cardButton.disabled =
-                !cardFieldsReady;
+            if (button) {
+                button.disabled = false;
+            }
         }
-
     }
 
 
-    // ============================================================
-    // START
-    // ============================================================
+    /*
+    ============================================================
+    BUY PRODUCT
+    ============================================================
+    */
+
+    async function buyProduct(productId) {
+
+        try {
+
+            showToast(
+                "⏳ მოწმდება ბალანსი..."
+            );
+
+
+            const response =
+                await fetch(
+                    BACKEND_URL +
+                    "/api/buy",
+                    {
+                        method: "POST",
+
+                        credentials: "include",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body:
+                            JSON.stringify({
+                                productId:
+                                    productId
+                            })
+                    }
+                );
+
+
+            const data =
+                await readJson(response);
+
+
+            console.log(
+                "Buy response:",
+                data
+            );
+
+
+            if (data.success) {
+
+                const newBalance =
+                    Number(
+                        data.balance || 0
+                    );
+
+                document.getElementById(
+                    "balance"
+                ).textContent =
+                    "$" +
+                    newBalance.toFixed(2);
+
+
+                showToast(
+                    "✅ პროდუქტი წარმატებით გაიხსნა"
+                );
+
+
+                setTimeout(
+                    function() {
+                        openRoutine(
+                            productId
+                        );
+                    },
+                    500
+                );
+
+                return;
+            }
+
+
+            if (
+                data.error ===
+                "INSUFFICIENT_BALANCE"
+            ) {
+
+                showToast(
+                    "❌ ბალანსზე საკმარისი თანხა არ არის"
+                );
+
+                return;
+            }
+
+
+            showToast(
+                "❌ " +
+                (
+                    data.error ||
+                    "შეძენა ვერ მოხერხდა"
+                )
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                "Buy error:",
+                error
+            );
+
+            showToast(
+                "❌ სერვერთან დაკავშირება ვერ მოხერხდა"
+            );
+        }
+    }
+
+
+    /*
+    ============================================================
+    OPEN ROUTINE
+    ============================================================
+    */
+
+    function openRoutine(productId) {
+
+        if (
+            productId ===
+            "routine50"
+        ) {
+
+            alert(
+                "✅ დღის რუტინა განბლოკილია!"
+            );
+
+        }
+
+        else if (
+            productId ===
+            "routine70"
+        ) {
+
+            alert(
+                "✅ რუტინები განბლოკილია!"
+            );
+        }
+    }
+
+
+    /*
+    ============================================================
+    TOAST
+    ============================================================
+    */
+
+    function showToast(message) {
+
+        const toast =
+            document.getElementById(
+                "toast"
+            );
+
+
+        toast.textContent =
+            message;
+
+
+        toast.classList.add(
+            "show"
+        );
+
+
+        clearTimeout(
+            window.toastTimer
+        );
+
+
+        window.toastTimer =
+            setTimeout(
+                function() {
+
+                    toast.classList.remove(
+                        "show"
+                    );
+
+                },
+                3000
+            );
+    }
+
+
+    /*
+    ============================================================
+    CLOSE MODAL WHEN CLICKING OUTSIDE
+    ============================================================
+    */
+
+    document
+        .getElementById(
+            "topupModal"
+        )
+        .addEventListener(
+            "click",
+            function(event) {
+
+                if (
+                    event.target ===
+                    this
+                ) {
+
+                    closeTopup();
+                }
+            }
+        );
+
+
+    /*
+    ============================================================
+    START
+    ============================================================
+    */
 
     document.addEventListener(
         "DOMContentLoaded",
-        async () => {
+        function() {
 
-            await loadBalance();
-
-            await initializePayPal();
-
-            await handlePayPalReturn();
+            loadBalance();
 
         }
     );
