@@ -1,908 +1,876 @@
+```html
 <!DOCTYPE html>
 <html lang="ka">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta charset="UTF-8">
+<title>Tools Hub</title>
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
+<style>
 
-    <title>Tools Hub</title>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    <style>
+body{
+    font-family:"Segoe UI",Tahoma,sans-serif;
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    background:
+        radial-gradient(
+            ellipse at 20% 20%,
+            rgba(70,130,255,.12),
+            transparent 55%
+        ),
+        radial-gradient(
+            ellipse at 80% 80%,
+            rgba(130,80,255,.08),
+            transparent 55%
+        ),
+        #081321;
 
-        body {
-            font-family:
-                "Segoe UI",
-                Tahoma,
-                sans-serif;
+    min-height:100vh;
 
-            background:
-                radial-gradient(
-                    ellipse at 20% 20%,
-                    rgba(70,130,255,.12),
-                    transparent 55%
-                ),
+    color:white;
 
-                radial-gradient(
-                    ellipse at 80% 80%,
-                    rgba(130,80,255,.08),
-                    transparent 55%
-                ),
+    padding:25px 15px;
+}
 
-                #081321;
+.container{
+    width:100%;
+    max-width:420px;
+    margin:auto;
 
-            min-height: 100vh;
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+}
 
-            color: white;
+/* =========================
+   BALANCE
+========================= */
 
-            padding:
-                25px 15px;
-        }
+.balance-card{
+    width:100%;
 
-        .container {
-            width: 100%;
+    padding:22px;
 
-            max-width: 420px;
+    border-radius:25px;
 
-            margin: auto;
+    background:rgba(20,40,75,.65);
 
-            display: flex;
+    border:1px solid rgba(130,195,255,.12);
 
-            flex-direction: column;
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
 
-            gap: 22px;
-        }
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.35),
+        inset 0 1px 0 rgba(255,255,255,.04);
 
-        /* =========================
-           BALANCE
-        ========================= */
+    text-align:center;
+}
 
-        .balance-card {
-            width: 100%;
+.balance-title{
+    color:rgba(200,220,255,.55);
 
-            padding: 22px;
+    font-size:12px;
 
-            border-radius: 25px;
+    margin-bottom:6px;
+}
 
-            background:
-                rgba(20,40,75,.65);
+.balance{
+    font-size:32px;
 
-            border:
-                1px solid
-                rgba(130,195,255,.12);
+    font-weight:800;
 
-            backdrop-filter:
-                blur(20px);
+    background:
+        linear-gradient(
+            135deg,
+            #8dc3ff,
+            #5795ff
+        );
 
-            -webkit-backdrop-filter:
-                blur(20px);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
 
-            box-shadow:
-                0 20px 60px rgba(0,0,0,.35),
-                inset 0 1px 0
-                rgba(255,255,255,.04);
+.topup-button{
+    margin-top:14px;
 
-            text-align: center;
-        }
+    width:100%;
 
-        .balance-title {
-            color:
-                rgba(200,220,255,.55);
+    border:none;
 
-            font-size: 12px;
+    padding:12px 20px;
 
-            margin-bottom: 6px;
-        }
+    border-radius:30px;
 
-        .balance {
-            font-size: 32px;
+    background:
+        linear-gradient(
+            135deg,
+            #5b9aff,
+            #3a70d0
+        );
 
-            font-weight: 800;
+    color:white;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #8dc3ff,
-                    #5795ff
-                );
+    font-size:14px;
 
-            -webkit-background-clip:
-                text;
+    font-weight:700;
 
-            -webkit-text-fill-color:
-                transparent;
-        }
+    cursor:pointer;
 
-        .topup-button {
-            margin-top: 14px;
+    transition:.25s;
+}
 
-            width: 100%;
+.topup-button:hover{
+    transform:translateY(-2px);
 
-            border: none;
+    box-shadow:
+        0 10px 30px rgba(60,130,255,.2);
+}
 
-            padding: 12px 20px;
+/* =========================
+   SQUARE
+========================= */
 
-            border-radius: 30px;
+.square{
+    width:100%;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #5b9aff,
-                    #3a70d0
-                );
+    max-width:340px;
 
-            color: white;
+    aspect-ratio:1 / 1;
 
-            font-size: 14px;
+    margin:auto;
 
-            font-weight: 700;
+    padding:28px 22px;
 
-            cursor: pointer;
+    display:flex;
 
-            transition: .25s;
-        }
+    flex-direction:column;
 
-        .topup-button:hover {
-            transform:
-                translateY(-2px);
+    align-items:center;
 
-            box-shadow:
-                0 10px 30px
-                rgba(60,130,255,.2);
-        }
+    justify-content:center;
 
-        /* =========================
-           SQUARE
-        ========================= */
+    text-align:center;
 
-        .square {
-            width: 100%;
+    border-radius:28px;
 
-            max-width: 340px;
+    background:
+        rgba(20,40,75,.55);
 
-            aspect-ratio: 1 / 1;
+    border:
+        1px solid rgba(130,195,255,.10);
 
-            margin: auto;
+    backdrop-filter:blur(20px);
 
-            padding:
-                28px 22px;
+    -webkit-backdrop-filter:blur(20px);
 
-            display: flex;
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.4),
+        inset 0 1px 0 rgba(255,255,255,.04);
 
-            flex-direction: column;
+    transition:.3s;
+}
 
-            align-items: center;
+.square:hover{
+    transform:translateY(-4px);
 
-            justify-content: center;
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.5);
+}
 
-            text-align: center;
+.glow-ring{
+    width:55px;
+    height:55px;
 
-            border-radius: 28px;
+    border-radius:50%;
 
-            background:
-                rgba(20,40,75,.55);
+    display:flex;
 
-            border:
-                1px solid
-                rgba(130,195,255,.10);
+    align-items:center;
 
-            backdrop-filter:
-                blur(20px);
+    justify-content:center;
 
-            -webkit-backdrop-filter:
-                blur(20px);
+    border:
+        1px solid rgba(130,195,255,.12);
 
-            box-shadow:
-                0 20px 60px rgba(0,0,0,.4),
-                inset 0 1px 0
-                rgba(255,255,255,.04);
+    margin-bottom:10px;
+}
 
-            transition: .3s;
-        }
+.logo{
+    font-size:30px;
+}
 
-        .square:hover {
-            transform:
-                translateY(-4px);
+.title{
+    color:#f1f6ff;
 
-            box-shadow:
-                0 25px 70px
-                rgba(0,0,0,.5);
-        }
+    font-size:18px;
 
-        .glow-ring {
-            width: 55px;
+    font-weight:700;
 
-            height: 55px;
+    margin-bottom:5px;
+}
 
-            border-radius: 50%;
+.title span{
+    background:
+        linear-gradient(
+            135deg,
+            #7ab7ff,
+            #4a8eff
+        );
 
-            display: flex;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
 
-            align-items: center;
+.sub{
+    color:rgba(190,215,255,.48);
 
-            justify-content: center;
+    font-size:11px;
 
-            border:
-                1px solid
-                rgba(130,195,255,.12);
+    line-height:1.5;
 
-            margin-bottom: 10px;
-        }
+    max-width:260px;
+}
 
-        .logo {
-            font-size: 30px;
-        }
+/* =========================
+   GAME BUTTONS
+========================= */
 
-        .title {
-            color: #f1f6ff;
+.games-grid{
+    display:flex;
 
-            font-size: 18px;
+    flex-wrap:wrap;
 
-            font-weight: 700;
+    justify-content:center;
 
-            margin-bottom: 5px;
-        }
+    gap:8px;
 
-        .title span {
-            background:
-                linear-gradient(
-                    135deg,
-                    #7ab7ff,
-                    #4a8eff
-                );
+    margin:14px 0;
+}
 
-            -webkit-background-clip:
-                text;
+.game-item{
+    color:rgba(220,235,255,.75);
 
-            -webkit-text-fill-color:
-                transparent;
-        }
+    background:
+        rgba(255,255,255,.04);
 
-        .sub {
-            color:
-                rgba(190,215,255,.48);
+    border:
+        1px solid rgba(255,255,255,.06);
 
-            font-size: 11px;
+    padding:7px 15px;
 
-            line-height: 1.5;
+    border-radius:12px;
 
-            max-width: 260px;
-        }
+    font-size:11px;
 
-        /* =========================
-           GAME BUTTONS
-        ========================= */
+    text-decoration:none;
 
-        .games-grid {
-            display: flex;
+    transition:.25s;
+}
 
-            flex-wrap: wrap;
+.game-item:hover{
+    transform:translateY(-2px);
 
-            justify-content: center;
+    background:
+        rgba(90,160,255,.10);
+}
 
-            gap: 8px;
+/* =========================
+   BUTTON
+========================= */
 
-            margin: 14px 0;
-        }
+.btn{
+    display:inline-block;
 
-        .game-item {
-            color:
-                rgba(220,235,255,.75);
+    margin-top:13px;
 
-            background:
-                rgba(255,255,255,.04);
+    padding:11px 27px;
 
-            border:
-                1px solid
-                rgba(255,255,255,.06);
+    border-radius:30px;
 
-            padding:
-                7px 15px;
+    border:none;
 
-            border-radius: 12px;
+    color:white;
 
-            font-size: 11px;
+    text-decoration:none;
 
-            text-decoration: none;
+    font-size:13px;
 
-            transition: .25s;
-        }
+    font-weight:700;
 
-        .game-item:hover {
-            transform:
-                translateY(-2px);
+    cursor:pointer;
 
-            background:
-                rgba(90,160,255,.10);
-        }
+    transition:.25s;
+}
 
-        /* =========================
-           BUTTON
-        ========================= */
+.btn:hover{
+    transform:
+        translateY(-2px)
+        scale(1.02);
+}
 
-        .btn {
-            display: inline-block;
+.btn-blue{
+    background:
+        linear-gradient(
+            135deg,
+            #5b9aff,
+            #3a7acc
+        );
 
-            margin-top: 13px;
+    box-shadow:
+        0 5px 25px rgba(60,130,255,.15);
+}
 
-            padding:
-                11px 27px;
+.btn-green{
+    background:
+        linear-gradient(
+            135deg,
+            #28d889,
+            #0a9a5a
+        );
+}
 
-            border-radius: 30px;
+/* =========================
+   STATUS
+========================= */
 
-            border: none;
+.sensor-bar{
+    width:180px;
 
-            color: white;
+    height:3px;
 
-            text-decoration: none;
+    margin-top:15px;
 
-            font-size: 13px;
+    background:
+        rgba(255,255,255,.05);
 
-            font-weight: 700;
+    border-radius:10px;
 
-            cursor: pointer;
+    overflow:hidden;
+}
 
-            transition: .25s;
-        }
+.sensor-fill{
+    height:100%;
 
-        .btn:hover {
-            transform:
-                translateY(-2px)
-                scale(1.02);
-        }
+    width:60%;
 
-        .btn-blue {
-            background:
-                linear-gradient(
-                    135deg,
-                    #5b9aff,
-                    #3a7acc
-                );
+    background:
+        linear-gradient(
+            90deg,
+            #5b9aff,
+            #a855f7
+        );
+}
 
-            box-shadow:
-                0 5px 25px
-                rgba(60,130,255,.15);
-        }
+.status{
+    margin-top:6px;
 
-        .btn-green {
-            background:
-                linear-gradient(
-                    135deg,
-                    #28d889,
-                    #0a9a5a
-                );
-        }
+    color:
+        rgba(190,215,255,.35);
 
-        /* =========================
-           STATUS
-        ========================= */
+    font-size:10px;
+}
 
-        .sensor-bar {
-            width: 180px;
+/* =========================
+   TOPUP MODAL
+========================= */
 
-            height: 3px;
+.modal{
+    position:fixed;
 
-            margin-top: 15px;
+    inset:0;
 
-            background:
-                rgba(255,255,255,.05);
+    display:none;
 
-            border-radius: 10px;
+    align-items:center;
 
-            overflow: hidden;
-        }
+    justify-content:center;
 
-        .sensor-fill {
-            height: 100%;
+    padding:20px;
 
-            width: 60%;
+    background:
+        rgba(0,0,0,.65);
 
-            background:
-                linear-gradient(
-                    90deg,
-                    #5b9aff,
-                    #a855f7
-                );
-        }
+    z-index:1000;
+}
 
-        .status {
-            margin-top: 6px;
+.modal.active{
+    display:flex;
+}
 
-            color:
-                rgba(190,215,255,.35);
+.modal-box{
+    width:100%;
 
-            font-size: 10px;
-        }
+    max-width:360px;
 
-        /* =========================
-           MODAL
-        ========================= */
+    padding:25px;
 
-        .modal {
-            position: fixed;
+    border-radius:25px;
 
-            inset: 0;
+    background:#10233c;
 
-            display: none;
+    border:
+        1px solid rgba(130,195,255,.12);
 
-            align-items: center;
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.55);
 
-            justify-content: center;
+    text-align:center;
+}
 
-            padding: 20px;
+.modal-title{
+    font-size:20px;
 
-            background:
-                rgba(0,0,0,.65);
+    font-weight:700;
 
-            z-index: 1000;
-        }
+    margin-bottom:6px;
+}
 
-        .modal.active {
-            display: flex;
-        }
+.modal-sub{
+    font-size:11px;
 
-        .modal-box {
-            width: 100%;
+    color:
+        rgba(190,215,255,.45);
 
-            max-width: 360px;
+    margin-bottom:18px;
+}
 
-            padding: 25px;
+.amounts{
+    display:grid;
 
-            border-radius: 25px;
+    grid-template-columns:
+        repeat(2,1fr);
 
-            background:
-                #10233c;
+    gap:10px;
+}
 
-            border:
-                1px solid
-                rgba(130,195,255,.12);
+.amount{
+    padding:12px;
 
-            box-shadow:
-                0 25px 80px
-                rgba(0,0,0,.55);
+    border-radius:15px;
 
-            text-align: center;
-        }
+    border:
+        1px solid rgba(130,195,255,.10);
 
-        .modal-title {
-            font-size: 20px;
+    background:
+        rgba(255,255,255,.04);
 
-            font-weight: 700;
+    color:white;
 
-            margin-bottom: 6px;
-        }
+    cursor:pointer;
 
-        .modal-sub {
-            font-size: 11px;
+    font-weight:700;
 
-            color:
-                rgba(190,215,255,.45);
+    transition:.2s;
+}
 
-            margin-bottom: 18px;
-        }
+.amount:hover{
+    background:
+        rgba(90,160,255,.12);
 
-        .amounts {
-            display: grid;
+    transform:translateY(-2px);
+}
 
-            grid-template-columns:
-                repeat(2,1fr);
+/*
+   IMPORTANT:
+   ღილაკი არასოდეს იცვლება
+   და არასოდეს ითიშება.
+*/
 
-            gap: 10px;
-        }
+.amount:disabled{
+    opacity:1;
 
-        .amount {
-            padding: 12px;
+    cursor:pointer;
+}
 
-            border-radius: 15px;
+/* =========================
+   LOADING TEXT
+========================= */
 
-            border:
-                1px solid
-                rgba(130,195,255,.10);
+.topup-status{
+    min-height:18px;
 
-            background:
-                rgba(255,255,255,.04);
+    margin-top:14px;
 
-            color: white;
+    font-size:11px;
 
-            cursor: pointer;
+    color:rgba(190,215,255,.65);
 
-            font-weight: 700;
+    line-height:1.4;
+}
 
-            transition: .2s;
-        }
+.topup-status.loading{
+    color:#8dc3ff;
+}
 
-        .amount:hover {
-            background:
-                rgba(90,160,255,.12);
+.topup-status.success{
+    color:#42e89a;
+}
 
-            transform:
-                translateY(-2px);
-        }
+.topup-status.error{
+    color:#ff7d7d;
+}
 
-        /*
-           ღილაკი არასდროს იწერება
-           "იტვირთება"-ზე.
-        */
+/* =========================
+   CLOSE
+========================= */
 
-        .amount:disabled {
-            opacity: 1;
+.close{
+    margin-top:16px;
 
-            cursor: pointer;
-        }
+    padding:9px 20px;
 
-        /*
-           ცალკე სტატუსი
-        */
+    border-radius:20px;
 
-        .topup-status {
-            min-height: 18px;
+    border:none;
 
-            margin-top: 14px;
+    background:
+        rgba(255,255,255,.06);
 
-            font-size: 11px;
+    color:
+        rgba(255,255,255,.7);
 
-            color:
-                rgba(190,215,255,.65);
+    cursor:pointer;
+}
 
-            line-height: 1.4;
-        }
+/* =========================
+   TOAST
+========================= */
 
-        .topup-status.success {
-            color:
-                #49df9a;
-        }
+.toast{
+    position:fixed;
 
-        .topup-status.error {
-            color:
-                #ff7b7b;
-        }
+    bottom:25px;
 
-        .topup-status.loading {
-            color:
-                #8dbfff;
-        }
+    left:50%;
 
-        .close {
-            margin-top: 16px;
+    transform:
+        translateX(-50%);
 
-            padding:
-                9px 20px;
+    display:none;
 
-            border-radius: 20px;
+    padding:11px 22px;
 
-            border: none;
+    border-radius:25px;
 
-            background:
-                rgba(255,255,255,.06);
+    background:
+        rgba(7,18,34,.95);
 
-            color:
-                rgba(255,255,255,.7);
+    border:
+        1px solid rgba(110,180,255,.10);
 
-            cursor: pointer;
-        }
+    color:white;
 
-        /* =========================
-           TOAST
-        ========================= */
+    font-size:12px;
 
-        .toast {
-            position: fixed;
+    z-index:2000;
 
-            bottom: 25px;
+    white-space:nowrap;
+}
 
-            left: 50%;
+.toast.show{
+    display:block;
+}
 
-            transform:
-                translateX(-50%);
+@media(max-width:380px){
 
-            display: none;
+    .square{
+        max-width:100%;
+    }
 
-            padding:
-                11px 22px;
+    .balance{
+        font-size:28px;
+    }
 
-            border-radius: 25px;
+    .toast{
+        white-space:normal;
 
-            background:
-                rgba(7,18,34,.95);
+        text-align:center;
 
-            border:
-                1px solid
-                rgba(110,180,255,.10);
+        max-width:90%;
+    }
 
-            color: white;
+}
 
-            font-size: 12px;
-
-            z-index: 2000;
-
-            white-space: nowrap;
-        }
-
-        .toast.show {
-            display: block;
-        }
-
-        @media(max-width:380px) {
-
-            .square {
-                max-width: 100%;
-            }
-
-            .balance {
-                font-size: 28px;
-            }
-
-            .toast {
-                white-space: normal;
-
-                text-align: center;
-
-                max-width: 90%;
-            }
-        }
-
-    </style>
-
+</style>
 </head>
+
 
 <body>
 
+
 <div class="container">
 
-    <!-- BALANCE -->
 
-    <div class="balance-card">
+<!-- =========================
+     BALANCE
+========================= -->
 
-        <div class="balance-title">
-            შენი ბალანსი
-        </div>
+<div class="balance-card">
 
-        <div
-            class="balance"
-            id="balance">
+    <div class="balance-title">
+        შენი ბალანსი
+    </div>
 
-            $0.00
+    <div
+        class="balance"
+        id="balance">
 
-        </div>
-
-        <button
-            class="topup-button"
-            onclick="openTopup()">
-
-            💳 ბალანსის შევსება
-
-        </button>
+        $0.00
 
     </div>
 
+    <button
+        class="topup-button"
+        onclick="openTopup()">
 
-    <!-- TOOLS HUB -->
+        💳 ბალანსის შევსება
 
-    <div class="square">
+    </button>
 
-        <div class="glow-ring">
-            <div class="logo">🎮</div>
-        </div>
+</div>
 
-        <div class="title">
-            ⚡ <span>Tools Hub</span>
-        </div>
 
-        <div class="sub">
-            თამაშები და სასარგებლო რესურსები
-        </div>
+<!-- =========================
+     TOOLS HUB
+========================= -->
 
-        <div class="games-grid">
+<div class="square">
 
-            <a
-                href="https://aikox123.github.io/tools-hub/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="game-item">
+    <div class="glow-ring">
+        <div class="logo">🎮</div>
+    </div>
 
-                🎮 Geode
+    <div class="title">
+        ⚡ <span>Tools Hub</span>
+    </div>
 
-            </a>
+    <div class="sub">
+        თამაშები და სასარგებლო რესურსები
+    </div>
 
-            <a
-                href="https://aikox123.github.io/tools-hub/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="game-item">
-
-                🚗 GTA 5
-
-            </a>
-
-        </div>
+    <div class="games-grid">
 
         <a
             href="https://aikox123.github.io/tools-hub/"
             target="_blank"
             rel="noopener noreferrer"
-            class="btn btn-blue">
+            class="game-item">
 
-            ⬇️ უფასო
+            🎮 Geode
 
         </a>
-
-        <div class="sensor-bar">
-            <div class="sensor-fill"></div>
-        </div>
-
-        <div class="status">
-            ● მზად არის
-        </div>
-
-    </div>
-
-
-    <!-- DAY ROUTINE -->
-
-    <div class="square">
-
-        <div class="glow-ring">
-            <div class="logo">📋</div>
-        </div>
-
-        <div class="title">
-            <span>დღის</span> რუტინა
-        </div>
-
-        <div class="sub">
-            დაგეგმილი ყოველდღიური რუტინა
-        </div>
-
-        <button
-            class="btn btn-blue"
-            onclick="buyProduct('routine50')">
-
-            🔓 $0.50 — გახსნა
-
-        </button>
-
-        <div class="sensor-bar">
-
-            <div
-                class="sensor-fill"
-                style="width:40%">
-            </div>
-
-        </div>
-
-        <div class="status">
-            ⏳ ხელმისაწვდომია
-        </div>
-
-    </div>
-
-
-    <!-- ROUTINES -->
-
-    <div class="square">
-
-        <div class="glow-ring">
-            <div class="logo">💪</div>
-        </div>
-
-        <div class="title">
-            <span>რუტინები</span>
-        </div>
-
-        <div class="sub">
-            აირჩიე ხელმისაწვდომი რუტინა
-        </div>
-
-        <button
-            class="btn btn-blue"
-            onclick="buyProduct('routine70')">
-
-            🔓 $0.70 — გახსნა
-
-        </button>
-
-        <div class="sensor-bar">
-
-            <div
-                class="sensor-fill"
-                style="width:85%">
-            </div>
-
-        </div>
-
-        <div class="status">
-            ⚡ აქტიური
-        </div>
-
-    </div>
-
-
-    <!-- CONTENT CREATOR -->
-
-    <div class="square">
-
-        <div class="glow-ring">
-            <div class="logo">🎬</div>
-        </div>
-
-        <div class="title">
-            თუ ხარ
-            <span>კონტენტ კრეატორი</span>
-        </div>
-
-        <div class="sub">
-            ვიდეოების ედიტინგის სერვისი
-        </div>
 
         <a
-            href="https://www.fiverr.com/s/o8DrKwN"
+            href="https://aikox123.github.io/tools-hub/"
             target="_blank"
             rel="noopener noreferrer"
-            class="btn btn-green">
+            class="game-item">
 
-            ✂️ ეწვიე
+            🚗 GTA 5
 
         </a>
 
-        <div class="sensor-bar">
+    </div>
 
-            <div
-                class="sensor-fill"
-                style="width:50%">
-            </div>
+    <a
+        href="https://aikox123.github.io/tools-hub/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-blue">
 
-        </div>
+        ⬇️ უფასო
 
-        <div class="status">
-            🎬 ვიდეო ედითი
+    </a>
+
+    <div class="sensor-bar">
+
+        <div
+            class="sensor-fill"
+            style="width:60%">
         </div>
 
     </div>
 
-
-    <!-- AI -->
-
-    <div
-        class="square"
-        style="opacity:.5">
-
-        <div class="glow-ring">
-            <div class="logo">🤖</div>
-        </div>
-
-        <div class="title">
-            <span>AI</span> Assistant
-        </div>
-
-        <div class="sub">
-            დროებით მიუწვდომელია
-        </div>
-
-        <div class="status">
-            ⏳ განახლება მალე
-        </div>
-
+    <div class="status">
+        ● მზად არის
     </div>
 
 </div>
 
 
-<!-- =====================================================
+<!-- =========================
+     DAY ROUTINE
+========================= -->
+
+<div class="square">
+
+    <div class="glow-ring">
+        <div class="logo">📋</div>
+    </div>
+
+    <div class="title">
+        <span>დღის</span> რუტინა
+    </div>
+
+    <div class="sub">
+        დაგეგმილი ყოველდღიური რუტინა
+    </div>
+
+    <button
+        class="btn btn-blue"
+        onclick="buyProduct('routine50')">
+
+        🔓 $0.50 — გახსნა
+
+    </button>
+
+    <div class="sensor-bar">
+
+        <div
+            class="sensor-fill"
+            style="width:40%">
+        </div>
+
+    </div>
+
+    <div class="status">
+        ⏳ ხელმისაწვდომია
+    </div>
+
+</div>
+
+
+<!-- =========================
+     ROUTINES
+========================= -->
+
+<div class="square">
+
+    <div class="glow-ring">
+        <div class="logo">💪</div>
+    </div>
+
+    <div class="title">
+        <span>რუტინები</span>
+    </div>
+
+    <div class="sub">
+        აირჩიე ხელმისაწვდომი რუტინა
+    </div>
+
+    <button
+        class="btn btn-blue"
+        onclick="buyProduct('routine70')">
+
+        🔓 $0.70 — გახსნა
+
+    </button>
+
+    <div class="sensor-bar">
+
+        <div
+            class="sensor-fill"
+            style="width:85%">
+        </div>
+
+    </div>
+
+    <div class="status">
+        ⚡ აქტიური
+    </div>
+
+</div>
+
+
+<!-- =========================
+     CONTENT CREATOR
+========================= -->
+
+<div class="square">
+
+    <div class="glow-ring">
+        <div class="logo">🎬</div>
+    </div>
+
+    <div class="title">
+        თუ ხარ <span>კონტენტ კრეატორი</span>
+    </div>
+
+    <div class="sub">
+        ვიდეოების ედიტინგის სერვისი
+    </div>
+
+    <a
+        href="https://www.fiverr.com/s/o8DrKwN"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-green">
+
+        ✂️ ეწვიე
+
+    </a>
+
+    <div class="sensor-bar">
+
+        <div
+            class="sensor-fill"
+            style="width:50%">
+        </div>
+
+    </div>
+
+    <div class="status">
+        🎬 ვიდეო ედითი
+    </div>
+
+</div>
+
+
+<!-- =========================
+     AI
+========================= -->
+
+<div
+    class="square"
+    style="opacity:.5">
+
+    <div class="glow-ring">
+        <div class="logo">🤖</div>
+    </div>
+
+    <div class="title">
+        <span>AI</span> Assistant
+    </div>
+
+    <div class="sub">
+        დროებით მიუწვდომელია
+    </div>
+
+    <div class="status">
+        ⏳ განახლება მალე
+    </div>
+
+</div>
+
+
+</div>
+
+
+<!-- =========================
      TOPUP MODAL
-===================================================== -->
+========================= -->
 
 <div
     class="modal"
-    id="topupModal">
+    id="topupModal"
+    onclick="modalBackgroundClick(event)">
 
     <div class="modal-box">
 
@@ -914,7 +882,9 @@
             აირჩიე თანხა
         </div>
 
+
         <div class="amounts">
+
 
             <button
                 class="amount"
@@ -924,6 +894,7 @@
 
             </button>
 
+
             <button
                 class="amount"
                 onclick="topup(0.70)">
@@ -931,6 +902,7 @@
                 $0.70
 
             </button>
+
 
             <button
                 class="amount"
@@ -940,6 +912,7 @@
 
             </button>
 
+
             <button
                 class="amount"
                 onclick="topup(2.00)">
@@ -947,6 +920,7 @@
                 $2.00
 
             </button>
+
 
             <button
                 class="amount"
@@ -956,6 +930,7 @@
 
             </button>
 
+
             <button
                 class="amount"
                 onclick="topup(10.00)">
@@ -964,11 +939,13 @@
 
             </button>
 
+
         </div>
 
+
         <!--
-            აქ გამოჩნდება "იტვირთება",
-            და არა თვითონ თანხის ღილაკზე.
+            Loading / error / success
+            აქ გამოჩნდება და არა ღილაკზე.
         -->
 
         <div
@@ -976,6 +953,7 @@
             class="topup-status">
 
         </div>
+
 
         <button
             class="close"
@@ -990,459 +968,482 @@
 </div>
 
 
-<!-- TOAST -->
+<!-- =========================
+     TOAST
+========================= -->
 
 <div
-    class="toast"
-    id="toast">
+    id="toast"
+    class="toast">
 
 </div>
 
 
 <script>
 
-    /* =====================================================
-       CONFIG
-    ===================================================== */
+/* =====================================================
+   BACKEND
+===================================================== */
 
-    const BACKEND_URL =
-        "https://tools-hub-backend.onrender.com";
-
-
-    /* =====================================================
-       ELEMENTS
-    ===================================================== */
-
-    const modal =
-        document.getElementById(
-            "topupModal"
-        );
-
-    const balanceElement =
-        document.getElementById(
-            "balance"
-        );
-
-    const topupStatus =
-        document.getElementById(
-            "topupStatus"
-        );
-
-    const toast =
-        document.getElementById(
-            "toast"
-        );
+const BACKEND_URL =
+    "https://tools-hub-backend.onrender.com";
 
 
-    /* =====================================================
-       MODAL
-    ===================================================== */
+/* =====================================================
+   ELEMENTS
+===================================================== */
 
-    function openTopup() {
+const balanceElement =
+    document.getElementById("balance");
 
-        modal.classList.add(
-            "active"
-        );
+const topupModal =
+    document.getElementById("topupModal");
 
-        topupStatus.textContent =
-            "";
+const topupStatus =
+    document.getElementById("topupStatus");
 
-        topupStatus.className =
-            "topup-status";
-    }
-
-
-    function closeTopup() {
-
-        modal.classList.remove(
-            "active"
-        );
-    }
+const toast =
+    document.getElementById("toast");
 
 
-    /* =====================================================
-       STATUS
-    ===================================================== */
+/* =====================================================
+   LOAD BALANCE
+===================================================== */
 
-    function setTopupStatus(
-        message,
-        type = ""
-    ) {
+async function loadBalance(){
 
-        topupStatus.textContent =
-            message;
+    try{
 
-        topupStatus.className =
-            "topup-status " +
-            type;
-    }
-
-
-    /* =====================================================
-       TOAST
-    ===================================================== */
-
-    function showToast(
-        message
-    ) {
-
-        toast.textContent =
-            message;
-
-        toast.classList.add(
-            "show"
-        );
-
-        setTimeout(
-            () => {
-                toast.classList.remove(
-                    "show"
-                );
-            },
-            3000
-        );
-    }
-
-
-    /* =====================================================
-       LOAD BALANCE
-    ===================================================== */
-
-    async function loadBalance() {
-
-        try {
-
-            const response =
-                await fetch(
-                    BACKEND_URL +
-                    "/api/balance",
-                    {
-                        method: "GET",
-
-                        credentials:
-                            "include"
-                    }
-                );
-
-            const data =
-                await response.json();
-
-            if (
-                data.success
-            ) {
-
-                balanceElement.textContent =
-                    "$" +
-                    Number(
-                        data.balance
-                    ).toFixed(2);
-            }
-
-        } catch (error) {
-
-            console.error(
-                "Balance load error:",
-                error
+        const response =
+            await fetch(
+                BACKEND_URL +
+                "/api/balance",
+                {
+                    method:"GET",
+                    credentials:"include",
+                    cache:"no-store"
+                }
             );
+
+
+        const data =
+            await response.json();
+
+
+        if(
+            data.success &&
+            typeof data.balance === "number"
+        ){
+
+            balanceElement.textContent =
+                "$" +
+                data.balance.toFixed(2);
+
         }
+
+    }catch(error){
+
+        console.error(
+            "Balance error:",
+            error
+        );
+
     }
 
+}
 
-    /* =====================================================
-       TOPUP
-    ===================================================== */
 
-    async function topup(
-        amount
-    ) {
+/* =====================================================
+   OPEN TOPUP
+===================================================== */
+
+function openTopup(){
+
+    topupModal.classList.add("active");
+
+    topupStatus.textContent = "";
+
+    topupStatus.className =
+        "topup-status";
+
+}
+
+
+/* =====================================================
+   CLOSE TOPUP
+===================================================== */
+
+function closeTopup(){
+
+    topupModal.classList.remove("active");
+
+}
+
+
+/* =====================================================
+   CLICK OUTSIDE MODAL
+===================================================== */
+
+function modalBackgroundClick(event){
+
+    if(
+        event.target === topupModal
+    ){
+
+        closeTopup();
+
+    }
+
+}
+
+
+/* =====================================================
+   TOPUP
+===================================================== */
+
+async function topup(amount){
+
+    /*
+       IMPORTANT:
+
+       თანხის ღილაკის ტექსტს
+       საერთოდ არ ვეხებით.
+
+       ღილაკი არც ითიშება.
+    */
+
+
+    topupStatus.className =
+        "topup-status loading";
+
+    topupStatus.textContent =
+        "⏳ გადახდის გვერდი იტვირთება...";
+
+
+    try{
+
+        const response =
+            await fetch(
+                BACKEND_URL +
+                "/api/create-topup",
+                {
+                    method:"POST",
+
+                    credentials:"include",
+
+                    headers:{
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:JSON.stringify({
+                        amount:Number(amount)
+                    })
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if(
+            !response.ok ||
+            !data.success
+        ){
+
+            throw new Error(
+                data.error ||
+                "გადახდის შექმნა ვერ მოხერხდა"
+            );
+
+        }
+
+
+        if(
+            !data.approvalUrl
+        ){
+
+            throw new Error(
+                "PayPal-ის გადახდის ბმული ვერ მოიძებნა"
+            );
+
+        }
+
 
         /*
-           ღილაკებს არ ვბლოკავთ.
-           მომხმარებელს შეუძლია სხვა
-           თანხაზეც დააჭიროს.
+           წარმატებით მივიღეთ PayPal URL.
+           გადავდივართ PayPal-ზე.
         */
 
-        setTopupStatus(
-            "⏳ გადახდის გვერდი იტვირთება...",
-            "loading"
+        topupStatus.className =
+            "topup-status success";
+
+        topupStatus.textContent =
+            "✓ გადახდის გვერდზე გადავდივართ...";
+
+
+        window.location.href =
+            data.approvalUrl;
+
+
+    }catch(error){
+
+        console.error(
+            "Topup error:",
+            error
         );
 
-        try {
 
-            const response =
-                await fetch(
-                    BACKEND_URL +
-                    "/api/create-topup",
-                    {
-                        method: "POST",
+        topupStatus.className =
+            "topup-status error";
 
-                        credentials:
-                            "include",
-
-                        headers: {
-                            "Content-Type":
-                                "application/json"
-                        },
-
-                        body:
-                            JSON.stringify({
-                                amount:
-                                    Number(
-                                        amount
-                                    )
-                            })
-                    }
-                );
-
-            const data =
-                await response.json();
-
-            if (
-                !response.ok ||
-                !data.success
-            ) {
-
-                throw new Error(
-                    data.error ||
-                    "გადახდის შექმნა ვერ მოხერხდა"
-                );
-            }
-
-            setTopupStatus(
-                "↗️ PayPal-ზე გადადიხარ...",
-                "loading"
+        topupStatus.textContent =
+            "❌ " +
+            (
+                error.message ||
+                "გადახდა ვერ დაიწყო"
             );
 
-            /*
-               PayPal approval page
-            */
 
-            window.location.href =
-                data.approvalUrl;
+        showToast(
+            "გადახდის დაწყება ვერ მოხერხდა"
+        );
 
-        } catch (error) {
-
-            console.error(
-                "Topup error:",
-                error
-            );
-
-            setTopupStatus(
-                "❌ " +
-                (
-                    error.message ||
-                    "დაფიქსირდა შეცდომა"
-                ),
-                "error"
-            );
-        }
     }
 
+}
 
-    /* =====================================================
-       BUY PRODUCT
-    ===================================================== */
 
-    async function buyProduct(
-        productId
-    ) {
+/* =====================================================
+   BUY PRODUCT
+===================================================== */
 
-        try {
+async function buyProduct(productId){
 
-            const response =
-                await fetch(
-                    BACKEND_URL +
-                    "/api/buy",
-                    {
-                        method: "POST",
+    try{
 
-                        credentials:
-                            "include",
+        const response =
+            await fetch(
+                BACKEND_URL +
+                "/api/buy",
+                {
+                    method:"POST",
 
-                        headers: {
-                            "Content-Type":
-                                "application/json"
-                        },
+                    credentials:"include",
 
-                        body:
-                            JSON.stringify({
-                                productId:
-                                    productId
-                            })
-                    }
-                );
+                    headers:{
+                        "Content-Type":
+                            "application/json"
+                    },
 
-            const data =
-                await response.json();
+                    body:JSON.stringify({
+                        productId:
+                            productId
+                    })
+                }
+            );
 
-            if (
-                data.success
-            ) {
 
-                balanceElement.textContent =
-                    "$" +
-                    Number(
-                        data.balance
-                    ).toFixed(2);
+        const data =
+            await response.json();
 
-                showToast(
-                    "✅ პროდუქტი წარმატებით გაიხსნა!"
-                );
 
-                return;
-            }
+        if(
+            !response.ok ||
+            !data.success
+        ){
 
-            if (
+            if(
                 data.error ===
                 "INSUFFICIENT_BALANCE"
-            ) {
+            ){
 
                 showToast(
                     "❌ ბალანსი არ არის საკმარისი"
                 );
 
-                openTopup();
-
                 return;
+
             }
 
-            showToast(
-                "❌ შეძენა ვერ მოხერხდა"
+            throw new Error(
+                data.error ||
+                "შეძენა ვერ მოხერხდა"
             );
 
-        } catch (error) {
-
-            console.error(
-                "Buy error:",
-                error
-            );
-
-            showToast(
-                "❌ სერვერთან დაკავშირება ვერ მოხერხდა"
-            );
         }
+
+
+        balanceElement.textContent =
+            "$" +
+            Number(data.balance)
+                .toFixed(2);
+
+
+        showToast(
+            "✅ წარმატებით გაიხსნა"
+        );
+
+
+    }catch(error){
+
+        console.error(
+            "Buy error:",
+            error
+        );
+
+
+        showToast(
+            "❌ შეცდომა"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+let toastTimer = null;
+
+function showToast(message){
+
+    toast.textContent =
+        message;
+
+    toast.classList.add("show");
+
+
+    clearTimeout(
+        toastTimer
+    );
+
+
+    toastTimer =
+        setTimeout(
+            function(){
+
+                toast.classList.remove(
+                    "show"
+                );
+
+            },
+            3000
+        );
+
+}
+
+
+/* =====================================================
+   PAYMENT RETURN
+===================================================== */
+
+function handlePaymentReturn(){
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const payment =
+        params.get("payment");
+
+
+    if(
+        payment === "success"
+    ){
+
+        showToast(
+            "✅ გადახდა წარმატებულია!"
+        );
+
+
+        /*
+           ახალი balance
+           სერვერიდან წამოვიღოთ.
+        */
+
+        loadBalance();
+
     }
 
 
-    /* =====================================================
-       PAYMENT RESULT
-    ===================================================== */
+    if(
+        payment === "cancelled"
+    ){
 
-    function handlePaymentResult() {
+        showToast(
+            "❌ გადახდა გაუქმდა"
+        );
 
-        const params =
-            new URLSearchParams(
-                window.location.search
-            );
+    }
 
-        const payment =
-            params.get(
-                "payment"
-            );
 
-        if (!payment) {
-            return;
-        }
+    if(
+        payment === "failed" ||
+        payment === "error"
+    ){
 
-        if (
-            payment ===
-            "success"
-        ) {
+        showToast(
+            "❌ გადახდა ვერ შესრულდა"
+        );
 
-            loadBalance();
+    }
 
-            openTopup();
 
-            setTopupStatus(
-                "✅ გადახდა წარმატებულია! ბალანსი განახლდა.",
-                "success"
-            );
+    /*
+       URL-ს ვასუფთავებთ,
+       რომ refresh-ზე იგივე შეტყობინება
+       მეორედ აღარ გამოჩნდეს.
+    */
 
-            showToast(
-                "✅ ბალანსი წარმატებით შეივსო"
-            );
-        }
-
-        else if (
-            payment ===
-            "cancelled"
-        ) {
-
-            openTopup();
-
-            setTopupStatus(
-                "⚠️ გადახდა გაუქმდა.",
-                "error"
-            );
-        }
-
-        else if (
-            payment ===
-            "failed"
-        ) {
-
-            openTopup();
-
-            setTopupStatus(
-                "❌ გადახდა ვერ დასრულდა.",
-                "error"
-            );
-        }
-
-        else if (
-            payment ===
-            "error"
-        ) {
-
-            openTopup();
-
-            setTopupStatus(
-                "❌ გადახდის დამუშავებისას შეცდომა მოხდა.",
-                "error"
-            );
-        }
-
-        /*
-           URL-ის გასუფთავება
-        */
+    if(payment){
 
         window.history.replaceState(
             {},
             document.title,
             window.location.pathname
         );
+
     }
 
-
-    /* =====================================================
-       START
-    ===================================================== */
-
-    loadBalance();
-
-    handlePaymentResult();
+}
 
 
-    /* =====================================================
-       CLOSE MODAL WHEN CLICK OUTSIDE
-    ===================================================== */
+/* =====================================================
+   START
+===================================================== */
 
-    modal.addEventListener(
-        "click",
-        function(event) {
+loadBalance();
 
-            if (
-                event.target ===
-                modal
-            ) {
-                closeTopup();
-            }
+handlePaymentReturn();
+
+
+/* =====================================================
+   ESC CLOSE
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "Escape"
+        ){
+
+            closeTopup();
 
         }
-    );
+
+    }
+);
 
 </script>
 
 </body>
-
 </html>
+```
