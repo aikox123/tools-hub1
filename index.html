@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="ka">
 
@@ -8,8 +7,7 @@
 
     <meta
         name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+        content="width=device-width, initial-scale=1.0">
 
     <title>Tools Hub</title>
 
@@ -22,7 +20,6 @@
         }
 
         body {
-
             font-family:
                 "Segoe UI",
                 Tahoma,
@@ -34,11 +31,13 @@
                     rgba(70,130,255,.12),
                     transparent 55%
                 ),
+
                 radial-gradient(
                     ellipse at 80% 80%,
                     rgba(130,80,255,.08),
                     transparent 55%
                 ),
+
                 #081321;
 
             min-height: 100vh;
@@ -50,7 +49,6 @@
         }
 
         .container {
-
             width: 100%;
 
             max-width: 420px;
@@ -69,7 +67,6 @@
         ========================= */
 
         .balance-card {
-
             width: 100%;
 
             padding: 22px;
@@ -90,9 +87,7 @@
                 blur(20px);
 
             box-shadow:
-                0 20px 60px
-                rgba(0,0,0,.35),
-
+                0 20px 60px rgba(0,0,0,.35),
                 inset 0 1px 0
                 rgba(255,255,255,.04);
 
@@ -100,7 +95,6 @@
         }
 
         .balance-title {
-
             color:
                 rgba(200,220,255,.55);
 
@@ -110,7 +104,6 @@
         }
 
         .balance {
-
             font-size: 32px;
 
             font-weight: 800;
@@ -130,7 +123,6 @@
         }
 
         .topup-button {
-
             margin-top: 14px;
 
             width: 100%;
@@ -160,7 +152,6 @@
         }
 
         .topup-button:hover {
-
             transform:
                 translateY(-2px);
 
@@ -174,7 +165,6 @@
         ========================= */
 
         .square {
-
             width: 100%;
 
             max-width: 340px;
@@ -212,9 +202,7 @@
                 blur(20px);
 
             box-shadow:
-                0 20px 60px
-                rgba(0,0,0,.4),
-
+                0 20px 60px rgba(0,0,0,.4),
                 inset 0 1px 0
                 rgba(255,255,255,.04);
 
@@ -222,7 +210,6 @@
         }
 
         .square:hover {
-
             transform:
                 translateY(-4px);
 
@@ -232,7 +219,6 @@
         }
 
         .glow-ring {
-
             width: 55px;
 
             height: 55px;
@@ -253,14 +239,11 @@
         }
 
         .logo {
-
             font-size: 30px;
         }
 
         .title {
-
-            color:
-                #f1f6ff;
+            color: #f1f6ff;
 
             font-size: 18px;
 
@@ -270,7 +253,6 @@
         }
 
         .title span {
-
             background:
                 linear-gradient(
                     135deg,
@@ -286,7 +268,6 @@
         }
 
         .sub {
-
             color:
                 rgba(190,215,255,.48);
 
@@ -302,7 +283,6 @@
         ========================= */
 
         .games-grid {
-
             display: flex;
 
             flex-wrap: wrap;
@@ -315,7 +295,6 @@
         }
 
         .game-item {
-
             color:
                 rgba(220,235,255,.75);
 
@@ -339,7 +318,6 @@
         }
 
         .game-item:hover {
-
             transform:
                 translateY(-2px);
 
@@ -352,7 +330,6 @@
         ========================= */
 
         .btn {
-
             display: inline-block;
 
             margin-top: 13px;
@@ -378,14 +355,12 @@
         }
 
         .btn:hover {
-
             transform:
                 translateY(-2px)
                 scale(1.02);
         }
 
         .btn-blue {
-
             background:
                 linear-gradient(
                     135deg,
@@ -399,7 +374,6 @@
         }
 
         .btn-green {
-
             background:
                 linear-gradient(
                     135deg,
@@ -413,7 +387,6 @@
         ========================= */
 
         .sensor-bar {
-
             width: 180px;
 
             height: 3px;
@@ -429,7 +402,6 @@
         }
 
         .sensor-fill {
-
             height: 100%;
 
             width: 60%;
@@ -443,7 +415,6 @@
         }
 
         .status {
-
             margin-top: 6px;
 
             color:
@@ -457,7 +428,6 @@
         ========================= */
 
         .modal {
-
             position: fixed;
 
             inset: 0;
@@ -477,12 +447,10 @@
         }
 
         .modal.active {
-
             display: flex;
         }
 
         .modal-box {
-
             width: 100%;
 
             max-width: 360px;
@@ -506,7 +474,6 @@
         }
 
         .modal-title {
-
             font-size: 20px;
 
             font-weight: 700;
@@ -515,7 +482,6 @@
         }
 
         .modal-sub {
-
             font-size: 11px;
 
             color:
@@ -525,7 +491,6 @@
         }
 
         .amounts {
-
             display: grid;
 
             grid-template-columns:
@@ -535,7 +500,6 @@
         }
 
         .amount {
-
             padding: 12px;
 
             border-radius: 15px;
@@ -557,7 +521,6 @@
         }
 
         .amount:hover {
-
             background:
                 rgba(90,160,255,.12);
 
@@ -565,15 +528,50 @@
                 translateY(-2px);
         }
 
+        /*
+           ღილაკი არასდროს იწერება
+           "იტვირთება"-ზე.
+        */
+
         .amount:disabled {
+            opacity: 1;
 
-            opacity: .5;
+            cursor: pointer;
+        }
 
-            cursor: wait;
+        /*
+           ცალკე სტატუსი
+        */
+
+        .topup-status {
+            min-height: 18px;
+
+            margin-top: 14px;
+
+            font-size: 11px;
+
+            color:
+                rgba(190,215,255,.65);
+
+            line-height: 1.4;
+        }
+
+        .topup-status.success {
+            color:
+                #49df9a;
+        }
+
+        .topup-status.error {
+            color:
+                #ff7b7b;
+        }
+
+        .topup-status.loading {
+            color:
+                #8dbfff;
         }
 
         .close {
-
             margin-top: 16px;
 
             padding:
@@ -597,7 +595,6 @@
         ========================= */
 
         .toast {
-
             position: fixed;
 
             bottom: 25px;
@@ -631,35 +628,20 @@
         }
 
         .toast.show {
-
             display: block;
-        }
-
-        /* =========================
-           LOADING
-        ========================= */
-
-        .loading {
-
-            opacity: .65;
-
-            pointer-events: none;
         }
 
         @media(max-width:380px) {
 
             .square {
-
                 max-width: 100%;
             }
 
             .balance {
-
                 font-size: 28px;
             }
 
             .toast {
-
                 white-space: normal;
 
                 text-align: center;
@@ -672,16 +654,11 @@
 
 </head>
 
-
 <body>
-
 
 <div class="container">
 
-
-    <!-- =========================
-         BALANCE
-    ========================= -->
+    <!-- BALANCE -->
 
     <div class="balance-card">
 
@@ -691,49 +668,37 @@
 
         <div
             class="balance"
-            id="balance"
-        >
+            id="balance">
+
             $0.00
+
         </div>
 
         <button
             class="topup-button"
-            id="topupButton"
-            onclick="openTopup()"
-        >
+            onclick="openTopup()">
+
             💳 ბალანსის შევსება
+
         </button>
 
     </div>
 
 
-    <!-- =========================
-         TOOLS HUB
-    ========================= -->
+    <!-- TOOLS HUB -->
 
     <div class="square">
 
         <div class="glow-ring">
-
-            <div class="logo">
-                🎮
-            </div>
-
+            <div class="logo">🎮</div>
         </div>
 
         <div class="title">
-
-            ⚡
-            <span>
-                Tools Hub
-            </span>
-
+            ⚡ <span>Tools Hub</span>
         </div>
 
         <div class="sub">
-
             თამაშები და სასარგებლო რესურსები
-
         </div>
 
         <div class="games-grid">
@@ -742,18 +707,20 @@
                 href="https://aikox123.github.io/tools-hub/"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="game-item"
-            >
+                class="game-item">
+
                 🎮 Geode
+
             </a>
 
             <a
                 href="https://aikox123.github.io/tools-hub/"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="game-item"
-            >
+                class="game-item">
+
                 🚗 GTA 5
+
             </a>
 
         </div>
@@ -762,18 +729,14 @@
             href="https://aikox123.github.io/tools-hub/"
             target="_blank"
             rel="noopener noreferrer"
-            class="btn btn-blue"
-        >
+            class="btn btn-blue">
+
             ⬇️ უფასო
+
         </a>
 
         <div class="sensor-bar">
-
-            <div
-                class="sensor-fill"
-                style="width:60%"
-            ></div>
-
+            <div class="sensor-fill"></div>
         </div>
 
         <div class="status">
@@ -783,49 +746,36 @@
     </div>
 
 
-    <!-- =========================
-         DAY ROUTINE
-    ========================= -->
+    <!-- DAY ROUTINE -->
 
     <div class="square">
 
         <div class="glow-ring">
-
-            <div class="logo">
-                📋
-            </div>
-
+            <div class="logo">📋</div>
         </div>
 
         <div class="title">
-
-            <span>
-                დღის
-            </span>
-
-            რუტინა
-
+            <span>დღის</span> რუტინა
         </div>
 
         <div class="sub">
-
             დაგეგმილი ყოველდღიური რუტინა
-
         </div>
 
         <button
             class="btn btn-blue"
-            onclick="buyProduct('routine50')"
-        >
+            onclick="buyProduct('routine50')">
+
             🔓 $0.50 — გახსნა
+
         </button>
 
         <div class="sensor-bar">
 
             <div
                 class="sensor-fill"
-                style="width:40%"
-            ></div>
+                style="width:40%">
+            </div>
 
         </div>
 
@@ -836,47 +786,36 @@
     </div>
 
 
-    <!-- =========================
-         ROUTINES
-    ========================= -->
+    <!-- ROUTINES -->
 
     <div class="square">
 
         <div class="glow-ring">
-
-            <div class="logo">
-                💪
-            </div>
-
+            <div class="logo">💪</div>
         </div>
 
         <div class="title">
-
-            <span>
-                რუტინები
-            </span>
-
+            <span>რუტინები</span>
         </div>
 
         <div class="sub">
-
             აირჩიე ხელმისაწვდომი რუტინა
-
         </div>
 
         <button
             class="btn btn-blue"
-            onclick="buyProduct('routine70')"
-        >
+            onclick="buyProduct('routine70')">
+
             🔓 $0.70 — გახსნა
+
         </button>
 
         <div class="sensor-bar">
 
             <div
                 class="sensor-fill"
-                style="width:85%"
-            ></div>
+                style="width:85%">
+            </div>
 
         </div>
 
@@ -887,50 +826,39 @@
     </div>
 
 
-    <!-- =========================
-         CONTENT CREATOR
-    ========================= -->
+    <!-- CONTENT CREATOR -->
 
     <div class="square">
 
         <div class="glow-ring">
-
-            <div class="logo">
-                🎬
-            </div>
-
+            <div class="logo">🎬</div>
         </div>
 
         <div class="title">
-
             თუ ხარ
-            <span>
-                კონტენტ კრეატორი
-            </span>
-
+            <span>კონტენტ კრეატორი</span>
         </div>
 
         <div class="sub">
-
             ვიდეოების ედიტინგის სერვისი
-
         </div>
 
         <a
             href="https://www.fiverr.com/s/o8DrKwN"
             target="_blank"
             rel="noopener noreferrer"
-            class="btn btn-green"
-        >
+            class="btn btn-green">
+
             ✂️ ეწვიე
+
         </a>
 
         <div class="sensor-bar">
 
             <div
                 class="sensor-fill"
-                style="width:50%"
-            ></div>
+                style="width:50%">
+            </div>
 
         </div>
 
@@ -941,37 +869,22 @@
     </div>
 
 
-    <!-- =========================
-         AI
-    ========================= -->
+    <!-- AI -->
 
     <div
         class="square"
-        style="opacity:.5"
-    >
+        style="opacity:.5">
 
         <div class="glow-ring">
-
-            <div class="logo">
-                🤖
-            </div>
-
+            <div class="logo">🤖</div>
         </div>
 
         <div class="title">
-
-            <span>
-                AI
-            </span>
-
-            Assistant
-
+            <span>AI</span> Assistant
         </div>
 
         <div class="sub">
-
             დროებით მიუწვდომელია
-
         </div>
 
         <div class="status">
@@ -980,18 +893,16 @@
 
     </div>
 
-
 </div>
 
 
-<!-- =========================
+<!-- =====================================================
      TOPUP MODAL
-========================= -->
+===================================================== -->
 
 <div
     class="modal"
-    id="topupModal"
->
+    id="topupModal">
 
     <div class="modal-box">
 
@@ -1007,53 +918,71 @@
 
             <button
                 class="amount"
-                onclick="topup(0.50, this)"
-            >
+                onclick="topup(0.50)">
+
                 $0.50
+
             </button>
 
             <button
                 class="amount"
-                onclick="topup(0.70, this)"
-            >
+                onclick="topup(0.70)">
+
                 $0.70
+
             </button>
 
             <button
                 class="amount"
-                onclick="topup(1.00, this)"
-            >
+                onclick="topup(1.00)">
+
                 $1.00
+
             </button>
 
             <button
                 class="amount"
-                onclick="topup(2.00, this)"
-            >
+                onclick="topup(2.00)">
+
                 $2.00
+
             </button>
 
             <button
                 class="amount"
-                onclick="topup(5.00, this)"
-            >
+                onclick="topup(5.00)">
+
                 $5.00
+
             </button>
 
             <button
                 class="amount"
-                onclick="topup(10.00, this)"
-            >
+                onclick="topup(10.00)">
+
                 $10.00
+
             </button>
+
+        </div>
+
+        <!--
+            აქ გამოჩნდება "იტვირთება",
+            და არა თვითონ თანხის ღილაკზე.
+        -->
+
+        <div
+            id="topupStatus"
+            class="topup-status">
 
         </div>
 
         <button
             class="close"
-            onclick="closeTopup()"
-        >
+            onclick="closeTopup()">
+
             დახურვა
+
         </button>
 
     </div>
@@ -1061,310 +990,307 @@
 </div>
 
 
-<!-- =========================
-     TOAST
-========================= -->
+<!-- TOAST -->
 
 <div
     class="toast"
-    id="toast"
-></div>
+    id="toast">
+
+</div>
 
 
 <script>
 
-/* =========================================================
-   BACKEND
-========================================================= */
+    /* =====================================================
+       CONFIG
+    ===================================================== */
 
-const API =
-    "https://tools-hub-backend.onrender.com";
+    const BACKEND_URL =
+        "https://tools-hub-backend.onrender.com";
 
 
-/* =========================================================
-   TOAST
-========================================================= */
+    /* =====================================================
+       ELEMENTS
+    ===================================================== */
 
-let toastTimer;
+    const modal =
+        document.getElementById(
+            "topupModal"
+        );
 
-function showToast(message) {
+    const balanceElement =
+        document.getElementById(
+            "balance"
+        );
+
+    const topupStatus =
+        document.getElementById(
+            "topupStatus"
+        );
 
     const toast =
-        document.getElementById("toast");
+        document.getElementById(
+            "toast"
+        );
 
-    toast.textContent =
-        message;
 
-    toast.classList.add(
-        "show"
-    );
+    /* =====================================================
+       MODAL
+    ===================================================== */
 
-    clearTimeout(
-        toastTimer
-    );
+    function openTopup() {
 
-    toastTimer =
+        modal.classList.add(
+            "active"
+        );
+
+        topupStatus.textContent =
+            "";
+
+        topupStatus.className =
+            "topup-status";
+    }
+
+
+    function closeTopup() {
+
+        modal.classList.remove(
+            "active"
+        );
+    }
+
+
+    /* =====================================================
+       STATUS
+    ===================================================== */
+
+    function setTopupStatus(
+        message,
+        type = ""
+    ) {
+
+        topupStatus.textContent =
+            message;
+
+        topupStatus.className =
+            "topup-status " +
+            type;
+    }
+
+
+    /* =====================================================
+       TOAST
+    ===================================================== */
+
+    function showToast(
+        message
+    ) {
+
+        toast.textContent =
+            message;
+
+        toast.classList.add(
+            "show"
+        );
+
         setTimeout(
             () => {
-
                 toast.classList.remove(
                     "show"
                 );
-
             },
-            3500
-        );
-}
-
-
-/* =========================================================
-   BALANCE
-========================================================= */
-
-async function loadBalance() {
-
-    try {
-
-        const response =
-            await fetch(
-                API +
-                "/api/balance",
-                {
-                    method: "GET",
-
-                    credentials:
-                        "include"
-                }
-            );
-
-        if (!response.ok) {
-
-            throw new Error(
-                "Balance request failed"
-            );
-        }
-
-        const data =
-            await response.json();
-
-        if (
-            data.success !== true
-        ) {
-
-            throw new Error(
-                "Balance API error"
-            );
-        }
-
-        document.getElementById(
-            "balance"
-        ).textContent =
-            "$" +
-            Number(
-                data.balance
-            ).toFixed(2);
-
-    } catch (error) {
-
-        console.error(
-            "Balance error:",
-            error
-        );
-
-        showToast(
-            "⚠️ ბალანსის ჩატვირთვა ვერ მოხერხდა"
+            3000
         );
     }
-}
 
 
-/* =========================================================
-   TOPUP MODAL
-========================================================= */
+    /* =====================================================
+       LOAD BALANCE
+    ===================================================== */
 
-function openTopup() {
+    async function loadBalance() {
 
-    document
-        .getElementById(
-            "topupModal"
-        )
-        .classList.add(
-            "active"
-        );
-}
+        try {
 
-function closeTopup() {
+            const response =
+                await fetch(
+                    BACKEND_URL +
+                    "/api/balance",
+                    {
+                        method: "GET",
 
-    document
-        .getElementById(
-            "topupModal"
-        )
-        .classList.remove(
-            "active"
-        );
-}
+                        credentials:
+                            "include"
+                    }
+                );
+
+            const data =
+                await response.json();
+
+            if (
+                data.success
+            ) {
+
+                balanceElement.textContent =
+                    "$" +
+                    Number(
+                        data.balance
+                    ).toFixed(2);
+            }
+
+        } catch (error) {
+
+            console.error(
+                "Balance load error:",
+                error
+            );
+        }
+    }
 
 
-/* =========================================================
-   TOPUP
-========================================================= */
+    /* =====================================================
+       TOPUP
+    ===================================================== */
 
-async function topup(
-    amount,
-    button
-) {
-
-    if (
-        button.disabled
+    async function topup(
+        amount
     ) {
-        return;
-    }
 
-    button.disabled =
-        true;
+        /*
+           ღილაკებს არ ვბლოკავთ.
+           მომხმარებელს შეუძლია სხვა
+           თანხაზეც დააჭიროს.
+        */
 
-    const oldText =
-        button.textContent;
+        setTopupStatus(
+            "⏳ გადახდის გვერდი იტვირთება...",
+            "loading"
+        );
 
-    button.textContent =
-        "⏳ იტვირთება...";
+        try {
 
-    try {
+            const response =
+                await fetch(
+                    BACKEND_URL +
+                    "/api/create-topup",
+                    {
+                        method: "POST",
 
-        const response =
-            await fetch(
-                API +
-                "/api/create-topup",
-                {
-                    method: "POST",
+                        credentials:
+                            "include",
 
-                    credentials:
-                        "include",
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
 
-                    headers: {
-                        "Content-Type":
-                            "application/json"
-                    },
+                        body:
+                            JSON.stringify({
+                                amount:
+                                    Number(
+                                        amount
+                                    )
+                            })
+                    }
+                );
 
-                    body:
-                        JSON.stringify({
-                            amount:
-                                Number(
-                                    amount
-                                )
-                        })
-                }
+            const data =
+                await response.json();
+
+            if (
+                !response.ok ||
+                !data.success
+            ) {
+
+                throw new Error(
+                    data.error ||
+                    "გადახდის შექმნა ვერ მოხერხდა"
+                );
+            }
+
+            setTopupStatus(
+                "↗️ PayPal-ზე გადადიხარ...",
+                "loading"
             );
 
-        const data =
-            await response.json();
+            /*
+               PayPal approval page
+            */
 
-        if (
-            !response.ok ||
-            data.success !== true
-        ) {
+            window.location.href =
+                data.approvalUrl;
+
+        } catch (error) {
 
             console.error(
                 "Topup error:",
-                data
+                error
             );
 
-            throw new Error(
-                data.error ||
-                "CREATE_TOPUP_ERROR"
-            );
-        }
-
-        if (
-            !data.approvalUrl
-        ) {
-
-            throw new Error(
-                "PayPal approval URL არ დაბრუნდა"
+            setTopupStatus(
+                "❌ " +
+                (
+                    error.message ||
+                    "დაფიქსირდა შეცდომა"
+                ),
+                "error"
             );
         }
-
-        /*
-         * Close modal before leaving.
-         */
-
-        closeTopup();
-
-        /*
-         * Redirect to PayPal.
-         *
-         * server.js uses:
-         *
-         * landing_page:
-         * "GUEST_CHECKOUT"
-         *
-         * so PayPal is asked to prefer
-         * guest/card checkout.
-         */
-
-        window.location.href =
-            data.approvalUrl;
-
-    } catch (error) {
-
-        console.error(
-            "Topup error:",
-            error
-        );
-
-        showToast(
-            "❌ გადახდის დაწყება ვერ მოხერხდა"
-        );
-
-        button.disabled =
-            false;
-
-        button.textContent =
-            oldText;
     }
-}
 
 
-/* =========================================================
-   BUY PRODUCT
-========================================================= */
+    /* =====================================================
+       BUY PRODUCT
+    ===================================================== */
 
-async function buyProduct(
-    productId
-) {
+    async function buyProduct(
+        productId
+    ) {
 
-    try {
+        try {
 
-        const response =
-            await fetch(
-                API +
-                "/api/buy",
-                {
-                    method: "POST",
+            const response =
+                await fetch(
+                    BACKEND_URL +
+                    "/api/buy",
+                    {
+                        method: "POST",
 
-                    credentials:
-                        "include",
+                        credentials:
+                            "include",
 
-                    headers: {
-                        "Content-Type":
-                            "application/json"
-                    },
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
 
-                    body:
-                        JSON.stringify({
-                            productId:
-                                productId
-                        })
-                }
-            );
+                        body:
+                            JSON.stringify({
+                                productId:
+                                    productId
+                            })
+                    }
+                );
 
-        const data =
-            await response.json();
+            const data =
+                await response.json();
 
-        if (
-            !response.ok ||
-            data.success !== true
-        ) {
+            if (
+                data.success
+            ) {
+
+                balanceElement.textContent =
+                    "$" +
+                    Number(
+                        data.balance
+                    ).toFixed(2);
+
+                showToast(
+                    "✅ პროდუქტი წარმატებით გაიხსნა!"
+                );
+
+                return;
+            }
 
             if (
                 data.error ===
@@ -1372,7 +1298,7 @@ async function buyProduct(
             ) {
 
                 showToast(
-                    "💳 ბალანსი არ არის საკმარისი"
+                    "❌ ბალანსი არ არის საკმარისი"
                 );
 
                 openTopup();
@@ -1380,182 +1306,143 @@ async function buyProduct(
                 return;
             }
 
-            throw new Error(
-                data.error ||
-                "BUY_ERROR"
+            showToast(
+                "❌ შეძენა ვერ მოხერხდა"
+            );
+
+        } catch (error) {
+
+            console.error(
+                "Buy error:",
+                error
+            );
+
+            showToast(
+                "❌ სერვერთან დაკავშირება ვერ მოხერხდა"
+            );
+        }
+    }
+
+
+    /* =====================================================
+       PAYMENT RESULT
+    ===================================================== */
+
+    function handlePaymentResult() {
+
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
+
+        const payment =
+            params.get(
+                "payment"
+            );
+
+        if (!payment) {
+            return;
+        }
+
+        if (
+            payment ===
+            "success"
+        ) {
+
+            loadBalance();
+
+            openTopup();
+
+            setTopupStatus(
+                "✅ გადახდა წარმატებულია! ბალანსი განახლდა.",
+                "success"
+            );
+
+            showToast(
+                "✅ ბალანსი წარმატებით შეივსო"
             );
         }
 
-        document.getElementById(
-            "balance"
-        ).textContent =
-            "$" +
-            Number(
-                data.balance
-            ).toFixed(2);
+        else if (
+            payment ===
+            "cancelled"
+        ) {
 
-        showToast(
-            "✅ პროდუქტი წარმატებით გაიხსნა"
-        );
+            openTopup();
 
-    } catch (error) {
+            setTopupStatus(
+                "⚠️ გადახდა გაუქმდა.",
+                "error"
+            );
+        }
 
-        console.error(
-            "Buy error:",
-            error
-        );
+        else if (
+            payment ===
+            "failed"
+        ) {
 
-        showToast(
-            "❌ შეძენა ვერ მოხერხდა"
-        );
-    }
-}
+            openTopup();
 
+            setTopupStatus(
+                "❌ გადახდა ვერ დასრულდა.",
+                "error"
+            );
+        }
 
-/* =========================================================
-   PAYMENT RESULT
-========================================================= */
+        else if (
+            payment ===
+            "error"
+        ) {
 
-function handlePaymentResult() {
+            openTopup();
 
-    const params =
-        new URLSearchParams(
-            window.location.search
-        );
-
-    const payment =
-        params.get(
-            "payment"
-        );
-
-    if (!payment) {
-        return;
-    }
-
-    if (
-        payment ===
-        "success"
-    ) {
-
-        showToast(
-            "✅ გადახდა წარმატებულია! ბალანსი განახლდა."
-        );
+            setTopupStatus(
+                "❌ გადახდის დამუშავებისას შეცდომა მოხდა.",
+                "error"
+            );
+        }
 
         /*
-         * Wait a little and reload
-         * balance from backend.
-         */
+           URL-ის გასუფთავება
+        */
 
-        setTimeout(
-            loadBalance,
-            500
+        window.history.replaceState(
+            {},
+            document.title,
+            window.location.pathname
         );
     }
 
-    else if (
-        payment ===
-        "cancelled"
-    ) {
 
-        showToast(
-            "ℹ️ გადახდა გაუქმდა"
-        );
-    }
+    /* =====================================================
+       START
+    ===================================================== */
 
-    else if (
-        payment ===
-        "failed"
-    ) {
+    loadBalance();
 
-        showToast(
-            "❌ გადახდა ვერ დასრულდა"
-        );
-    }
-
-    else if (
-        payment ===
-        "error"
-    ) {
-
-        showToast(
-            "❌ გადახდის დამუშავებისას შეცდომა მოხდა"
-        );
-    }
-
-    /*
-     * Remove ?payment=... from URL.
-     */
-
-    window.history.replaceState(
-        {},
-        document.title,
-        window.location.pathname
-    );
-}
+    handlePaymentResult();
 
 
-/* =========================================================
-   CLOSE MODAL BY CLICKING OUTSIDE
-========================================================= */
+    /* =====================================================
+       CLOSE MODAL WHEN CLICK OUTSIDE
+    ===================================================== */
 
-document
-    .getElementById(
-        "topupModal"
-    )
-    .addEventListener(
+    modal.addEventListener(
         "click",
         function(event) {
 
             if (
                 event.target ===
-                this
+                modal
             ) {
-
                 closeTopup();
             }
 
         }
     );
 
-
-/* =========================================================
-   ESC CLOSE
-========================================================= */
-
-document.addEventListener(
-    "keydown",
-    function(event) {
-
-        if (
-            event.key ===
-            "Escape"
-        ) {
-
-            closeTopup();
-        }
-
-    }
-);
-
-
-/* =========================================================
-   START
-========================================================= */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function() {
-
-        loadBalance();
-
-        handlePaymentResult();
-
-    }
-);
-
 </script>
 
 </body>
 
 </html>
-```
